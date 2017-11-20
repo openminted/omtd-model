@@ -3,7 +3,7 @@
   <groupId>eu.openminted</groupId>
   <artifactId>omtd-model</artifactId>
   <packaging>jar</packaging>
-  <version>2.0.2</version>
+  <version>3.0.1-SNAPSHOT</version>
   <name>omtd-model</name>
   <url>http://maven.apache.org</url>
 
