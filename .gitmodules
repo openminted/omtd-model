@@ -1,0 +1,3 @@
+[submodule "src/main/resources/xsd"]
+	path = src/main/resources/xsd
+	url = https://github.com/openminted/omtd-share_metadata_schema.git
