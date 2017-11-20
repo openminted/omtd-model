@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" jaxb:extensionBindingPrefixes="xjc simplify" jaxb:version="1.0" targetNamespace="http://www.meta-share.org/OMTD-SHARE_XMLSchema" version="2.0.1" xml:lang="en" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:ms="http://www.meta-share.org/OMTD-SHARE_XMLSchema" xmlns:simplify="http://jaxb2-commons.dev.java.net/basic/simplify" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" ?><xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" jaxb:extensionBindingPrefixes="xjc simplify" jaxb:version="1.0" targetNamespace="http://www.meta-share.org/OMTD-SHARE_XMLSchema" version="3.0.0" xml:lang="en" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:ms="http://www.meta-share.org/OMTD-SHARE_XMLSchema" xmlns:simplify="http://jaxb2-commons.dev.java.net/basic/simplify" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<xs:include schemaLocation="./OMTD-SHARE-GlobalTypes.xsd"/>
 	<xs:include schemaLocation="./OMTD-SHARE-ResourceCommon.xsd"/>
 	<xs:complexType name="lexicalConceptualResourceInfoType">
@@ -168,6 +168,13 @@
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="relations">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:relationInfo"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="lexicalConceptualResourceMediaType">
 				<xs:annotation>
 					<xs:documentation>Restriction of mediaType for lexicalConceptualResources</xs:documentation>
@@ -179,13 +186,6 @@
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element ref="ms:lexicalConceptualResourceTextInfo"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="relations">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:relationInfo"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -308,33 +308,54 @@
 				</xs:complexType>
 			</xs:element>
 			
-			<xs:element name="sizes">
+			<xs:element minOccurs="0" name="sizes">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="unbounded" ref="ms:sizeInfo"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+			<xs:element ref="ms:dataFormatInfo"/>
+			<xs:element minOccurs="0" ref="ms:characterEncoding"/>
 			<xs:element minOccurs="0" name="domains">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:domainInfo"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:domain"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element minOccurs="0" name="timeClassifications">
+			<xs:element minOccurs="0" name="keywords">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:timeCoverageInfo"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:keyword"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element minOccurs="0" name="geographicClassifications">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:geographicCoverageInfo"/>
-					</xs:sequence>
-				</xs:complexType>
+			<xs:element minOccurs="0" name="timeCoverage">
+				<xs:annotation>
+					<xs:documentation>The time period that the content of a resource is about</xs:documentation>
+					<xs:appinfo>
+						<label>Time coverage</label>
+					</xs:appinfo>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="0" name="geographicCoverage">
+				<xs:annotation>
+					<xs:documentation>The geographic region that the content of a resource is about; for countries, recommended use of ISO-3166</xs:documentation>
+					<xs:appinfo>
+						<label>Geographic coverage</label>
+					</xs:appinfo>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
 			</xs:element>
 			<xs:element minOccurs="0" ref="ms:creationInfo"/>
 		</xs:sequence>

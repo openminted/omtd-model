@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" jaxb:extensionBindingPrefixes="xjc simplify" jaxb:version="1.0" targetNamespace="http://www.meta-share.org/OMTD-SHARE_XMLSchema" version="2.0.1" xml:lang="en" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:ms="http://www.meta-share.org/OMTD-SHARE_XMLSchema" xmlns:simplify="http://jaxb2-commons.dev.java.net/basic/simplify" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" ?><xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" jaxb:extensionBindingPrefixes="xjc simplify" jaxb:version="1.0" targetNamespace="http://www.meta-share.org/OMTD-SHARE_XMLSchema" version="3.0.0" xml:lang="en" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:ms="http://www.meta-share.org/OMTD-SHARE_XMLSchema" xmlns:simplify="http://jaxb2-commons.dev.java.net/basic/simplify" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<xs:include schemaLocation="./OMTD-SHARE-GlobalTypes.xsd"/>
 	<xs:include schemaLocation="./OMTD-SHARE-ResourceCommon.xsd"/>
 	<xs:complexType name="componentInfoType">
@@ -33,14 +33,6 @@
 			<xs:element ref="ms:identificationInfo"/>
 			<xs:element ref="ms:versionInfo"/>
 			<xs:element ref="ms:contactInfo"/>
-			<xs:element minOccurs="0" name="validationInfos">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:validationInfo"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" ref="ms:usageInfo"/>
 			<xs:element minOccurs="0" ref="ms:resourceDocumentationInfo">
 				<xs:annotation>
 					<xs:appinfo>
@@ -49,613 +41,14 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" ref="ms:resourceCreationInfo"/>
-			<xs:element name="componentType">
-				<xs:annotation>
-					<xs:documentation>Specifies the type of a component, in terms of the function/task it performs; please, note that the ontology is under revision</xs:documentation>
-					<xs:appinfo>
-						<relation>one-to-many</relation>
-						<label>Type of component</label>
-						<label-plural>Types of component</label-plural>
-					</xs:appinfo>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:annotation><xs:appinfo><jaxb:typesafeEnumClass name="componentTypeEnum"/></xs:appinfo></xs:annotation><xs:restriction base="xs:string">
-						<xs:maxLength value="100"/>
-						<xs:enumeration value="accessComponent">
-							<xs:annotation>
-								<xs:documentation>A component used for providing access to data resources</xs:documentation>
-								<xs:appinfo>
-									<label>Access component</label>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="reader">
-							<xs:annotation>
-								<xs:documentation>A component that reads content of various types (pdf, txt, xml etc.)</xs:documentation>
-								<xs:appinfo>
-									<label>Reader</label>
-									<xs:broader>accessComponent</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="writer">
-							<xs:annotation>
-								<xs:documentation>A component that writes processing results in various formats</xs:documentation>
-								<xs:appinfo>
-									<label>Writer</label>
-									<xs:broader>accessComponent</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="supportComponent">
-							<xs:annotation>
-								<xs:documentation>A component that provides support to developers</xs:documentation>
-								<xs:appinfo>
-									<label>Support component</label>
-									<xs:exactMatch>helper</xs:exactMatch>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="visualiser">
-							<xs:annotation>
-								<xs:documentation>A component or interface that renders the contents of a resource in a graphic way for visualisation purposes</xs:documentation>
-								<xs:appinfo>
-									<label>Visualiser</label>
-									<xs:broader>supportComponent</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="debugger">
-							<xs:annotation>
-								<xs:documentation>A component that helps in the debugging process</xs:documentation>
-								<xs:appinfo>
-									<label>Debugger</label>
-									<xs:broader>supportComponent</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="validator">
-							<xs:annotation>
-								<xs:documentation>A component used to confirm that a system/resource meets the specifications and fulfills its intended purpose</xs:documentation>
-								<xs:appinfo>
-									<label>Validator</label>
-									<xs:broader>supportComponent</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="viewer">
-							<xs:annotation>
-								<xs:documentation>A component that provides access to the contents of a resource but intended only for access by humans</xs:documentation>
-								<xs:appinfo>
-									<label>Viewer</label>
-									<xs:broader>supportComponent</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="corpusViewer">
-							<xs:annotation>
-								<xs:documentation>A component that provides access to the contents of a corpus but intended only for access by humans</xs:documentation>
-								<xs:appinfo>
-									<label>Corpus viewer</label>
-									<xs:broader>viewer</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="lexiconViewer">
-							<xs:annotation>
-								<xs:documentation>A component that provides access to the contents of a lexical/conceptual resoruces but intended only for access by humans</xs:documentation>
-								<xs:appinfo>
-									<label>Lexicon viewer</label>
-									<xs:broader>viewer</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="editor">
-							<xs:annotation>
-								<xs:documentation>A component that allows humans to edit the contents of a resource</xs:documentation>
-								<xs:appinfo>
-									<label>Editor</label>
-									<xs:broader>supportComponent</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="mlTrainer">
-							<xs:annotation>
-								<xs:documentation>A component that is used in training models for machine learning</xs:documentation>
-								<xs:appinfo>
-									<label>Trainer of Machine Learning models</label>
-									<xs:broader>supportComponent</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="mlPredictor">
-							<xs:annotation>
-								<xs:documentation>A component that is used in predicting based on machine learning models</xs:documentation>
-								<xs:appinfo>
-									<label>Machine Learning Predictor</label>
-									<xs:broader>supportComponent</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="featureExtractor">
-							<xs:annotation>
-								<xs:documentation>A component that is used for extracting features</xs:documentation>
-								<xs:appinfo>
-									<label>Feature extractor</label>
-									<xs:broader>supportComponent</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="dataSplitter">
-							<xs:annotation>
-								<xs:documentation>A component that performs data splitting for cross validation purposes</xs:documentation>
-								<xs:appinfo>
-									<label>Data splitter</label>
-									<xs:broader>supportComponent</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="dataMerger">
-							<xs:annotation>
-								<xs:documentation>A component that supports data merging from various sources</xs:documentation>
-								<xs:appinfo>
-									<label>Data merger</label>
-									<xs:broader>supportComponent</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="converter">
-							<xs:annotation>
-								<xs:documentation>A component that performs conversion between formats of a resource</xs:documentation>
-								<xs:appinfo>
-									<label>Converter</label>
-									<xs:broader>supportComponent</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="dependencyConverter">
-							<xs:annotation>
-								<xs:documentation>A component that converts a constituency tree into a dependency tree</xs:documentation>
-								<xs:appinfo>
-									<label>Dependency converter</label>
-									<xs:broader>converter</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="dependencyParser">
-							<xs:annotation>
-								<xs:documentation>A component that generates a dependency tree from typically token and POS annotations</xs:documentation>
-								<xs:appinfo>
-									<label>Dependency parser</label>
-									<xs:broader>parser</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="constituencyParser">
-							<xs:annotation>
-								<xs:documentation>A component that a constituency tree from typically token and POS annotations</xs:documentation>
-								<xs:appinfo>
-									<label>Constituency parser</label>
-									<xs:broader>parser</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="evaluator">
-							<xs:annotation>
-								<xs:documentation>A component that is used in the evaluation of the performance of a component</xs:documentation>
-								<xs:appinfo>
-									<label>Evaluator</label>
-									<xs:broader>supportComponent</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="flowController">
-							<xs:annotation>
-								<xs:documentation>A component that supports controlling flows</xs:documentation>
-								<xs:appinfo>
-									<label>Flow controller</label>
-									<xs:broader>supportComponent</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="scriptBasedAnalyser">
-							<xs:annotation>
-								<xs:documentation>A component that performs analysis tasks based on a script</xs:documentation>
-								<xs:appinfo>
-									<label>Script-based analyser</label>
-									<xs:broader>supportComponent</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="matcher">
-							<xs:annotation>
-								<xs:documentation>A component that allows matching (mapping) of elements</xs:documentation>
-								<xs:appinfo>
-									<label>Matcher</label>
-									<xs:broader>supportComponent</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="gazeteerBasedMatcher">
-							<xs:annotation>
-								<xs:documentation>A component that allows matching of elements based on a gazeteer</xs:documentation>
-								<xs:appinfo>
-									<label>Gazeteer based matcher</label>
-									<xs:broader>matcher</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="crowdSourcingComponent">
-							<xs:annotation>
-								<xs:documentation>A component that supports crowd sourcing operations</xs:documentation>
-								<xs:appinfo>
-									<label>Crowdsourcing component</label>
-									<xs:broader>supportComponent</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="dataCollector">
-							<xs:annotation>
-								<xs:documentation>A component that collects (retrieves) data from various sources</xs:documentation>
-								<xs:appinfo>
-									<label>Data collector</label>
-									<xs:broader>supportComponent</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="crawler">
-							<xs:annotation>
-								<xs:documentation>A component that crawls the web and collects data from various web sites</xs:documentation>
-								<xs:appinfo>
-									<label>Crawler</label>
-									<xs:broader>dataCollector</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="processor">
-							<xs:annotation>
-								<xs:documentation>A component that is used in processing operations</xs:documentation>
-								<xs:appinfo>
-									<label>Processor</label>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="annotator">
-							<xs:annotation>
-								<xs:documentation>A component that annotates any language data (text, video, audio etc.), i.e. adds any descriptive or analytic notations (structural, linguistic, etc) to raw language data</xs:documentation>
-								<xs:appinfo>
-									<label>Annotator</label>
-									<xs:broader>processor</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="segmenter">
-							<xs:annotation>
-								<xs:documentation>A component that segments a text into structural untis (chapters, paragraphs, sentences, words, tokens etc.)</xs:documentation>
-								<xs:appinfo>
-									<label>Segmenter</label>
-									<xs:broader>annotator</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="stemmer">
-							<xs:annotation>
-								<xs:documentation>A component that extracts stems from words in a text, usually by removing the most common morphological and inflectional endings from words</xs:documentation>
-								<xs:appinfo>
-									<label>Stemmer</label>
-									<xs:broader>annotator</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="lemmatizer">
-							<xs:annotation>
-								<xs:documentation>A component that annotates the tokens of a text with lemma information</xs:documentation>
-								<xs:appinfo>
-									<label>Lemmatizer</label>
-									<xs:broader>annotator</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="morphologicalTagger">
-							<xs:annotation>
-								<xs:documentation>A component that annotates tokens of a text with morphological information (part-of-speech and morphological features)</xs:documentation>
-								<xs:appinfo>
-									<label>Morphological tagger</label>
-									<xs:broader>annotator</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="chunker">
-							<xs:annotation>
-								<xs:documentation>A component that groups tokens of a text into chunks</xs:documentation>
-								<xs:appinfo>
-									<label>Chunker</label>
-									<xs:broader>annotator</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="parser">
-							<xs:annotation>
-								<xs:documentation>A component that takes as input text and returns a form of data structure (e.g. syntactic parse as a tree, or bracketed structure etc.)</xs:documentation>
-								<xs:appinfo>
-									<label>Parser</label>
-									<xs:broader>annotator</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="coreferenceAnnotator">
-							<xs:annotation>
-								<xs:documentation>A component that annotates tokens of a text with coreference information, i.e. annotating expressions that refer to the same entity in the text</xs:documentation>
-								<xs:appinfo>
-									<label>Co-reference annotator</label>
-									<xs:broader>annotator</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="namedEntityRecognizer">
-							<xs:annotation>
-								<xs:documentation>A component that seeks to locate and classify elements in a text into pre-defined categories such as the names of persons, organizations, locations, expressions of times, etc.</xs:documentation>
-								<xs:appinfo>
-									<label>Named entitity recognizer</label>
-									<xs:broader>annotator</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="semanticsAnnotator">
-							<xs:annotation>
-								<xs:documentation>A component that annotates the tokens of a text with semantic features</xs:documentation>
-								<xs:appinfo>
-									<label>Semantics annotator</label>
-									<xs:broader>annotator</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="srlAnnotator">
-							<xs:annotation>
-								<xs:documentation>A component that annotates the tokens of a text with Semantic Role labels</xs:documentation>
-								<xs:appinfo>
-									<label>Annotator of semantic role labels</label>
-									<xs:broader>semanticsAnnotator</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="readabilityAnnotator">
-							<xs:annotation>
-								<xs:documentation>A component that annotates the tokens of a text with readability scores</xs:documentation>
-								<xs:appinfo>
-									<label>Readability annotator</label>
-									<xs:broader>semanticsAnnotator</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="aligner">
-							<xs:annotation>
-								<xs:documentation>A component that detects and annotates equivalence relations between items (corpora, texts, paragraphs, sentences, phrases, words) in two languages</xs:documentation>
-								<xs:appinfo>
-									<label>Aligner</label>
-									<xs:broader>annotator</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="generator">
-							<xs:annotation>
-								<xs:documentation>A component that generates (semi-)automatically natural language texts (based on non-linguistic data, keywords, logical forms, knowledge bases...)</xs:documentation>
-								<xs:appinfo>
-									<label>Generator</label>
-									<xs:broader>processor</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="summarizer">
-							<xs:annotation>
-								<xs:documentation>A component that produces a natural language synopsis of a longer text</xs:documentation>
-								<xs:appinfo>
-									<label>Summarizer</label>
-									<xs:broader>generator</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="simplifier">
-							<xs:annotation>
-								<xs:documentation>A component that outputs a simpler rendition of a given item (sentence, text etc.)</xs:documentation>
-								<xs:appinfo>
-									<label>Simplifier</label>
-									<xs:broader>generator</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="preOrPostProcessingComponent">
-							<xs:annotation>
-								<xs:documentation>A component that is used at pre- or post-processing stages in order to normalize input/output</xs:documentation>
-								<xs:appinfo>
-									<label>Pre- or post-processing component</label>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="spellingChecker">
-							<xs:annotation>
-								<xs:documentation>A component that corrects spelling mistakes in a text</xs:documentation>
-								<xs:appinfo>
-									<xs:broader>preOrPostProcessor</xs:broader>
-									<label>Spelling checker</label>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="grammarChecker">
-							<xs:annotation>
-								<xs:documentation>A component that corrects grammatical mistakes in a text</xs:documentation>
-								<xs:appinfo>
-									<label>Grammar checker</label>
-									<xs:broader>preOrPostProcessor</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="normalizer">
-							<xs:annotation>
-								<xs:documentation>A component that removes unwanted material from text, usually as a pre-processing step</xs:documentation>
-								<xs:appinfo>
-									<label>Normalizer</label>
-									<xs:broader>preOrPostProcessor</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="filters">
-							<xs:annotation>
-								<xs:documentation>A component that is used for filtering text input or annotations based on specific criteria</xs:documentation>
-								<xs:appinfo>
-									<label>Filters</label>
-									<xs:broader>preOrPostProcessor</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="analyzer">
-							<xs:annotation>
-								<xs:documentation>A component that is used for analysing an input text in order to perform extraction of features/information (e.g. word list), or characterization of the whole text</xs:documentation>
-								<xs:appinfo>
-									<label>Analyzer</label>
-									<xs:closeMatch>extractor</xs:closeMatch>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="topicExtractor">
-							<xs:annotation>
-								<xs:documentation>A component that guesses the topic of a text</xs:documentation>
-								<xs:appinfo>
-									<label>Topic extractor</label>
-									<xs:broader>analyzer</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="documentClassifier">
-							<xs:annotation>
-								<xs:documentation>A component that tries to classify a document into one or more categories</xs:documentation>
-								<xs:appinfo>
-									<label>Document classifier</label>
-									<xs:broader>analyzer</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="languageIdentifier">
-							<xs:annotation>
-								<xs:documentation>A component that identifies the language of a given text based on its contents</xs:documentation>
-								<xs:appinfo>
-									<label>Language identifier</label>
-									<xs:broader>analyzer</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="sentimentAnalyzer">
-							<xs:annotation>
-								<xs:documentation>A component that tries to identify sentences that express the author’s negative or positive feelings on something; (Sentiment analysis (also known as opinion mining) refers to the use of natural language processing, text analysis and computational linguistics to identify and extract subjective information in source materials (wikipedia) )</xs:documentation>
-								<xs:appinfo>
-									<xs:closeMatch>opinionMiningTool</xs:closeMatch>
-									<label>Sentiment analyzer</label>
-									<xs:broader>analyzer</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="emotionRecognizer">
-							<xs:annotation>
-								<xs:documentation>A component that tries to recognize and annotate emotions (e.g. fear, anger, happiness etc.) from text, video, audio and image</xs:documentation>
-								<xs:appinfo>
-									<label>Emotion recognizer</label>
-									<xs:broader>analyzer</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="keywordsExtractor">
-							<xs:annotation>
-								<xs:documentation>A component that tries to extract keywords from a given text</xs:documentation>
-								<xs:appinfo>
-									<label>Keyword extractor</label>
-									<xs:broader>analyzer</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="termExtractor">
-							<xs:annotation>
-								<xs:documentation>A component that tries to extract terms from a corpus</xs:documentation>
-								<xs:appinfo>
-									<label>Term extractor</label>
-									<xs:broader>analyzer</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="contradictionDetector">
-							<xs:annotation>
-								<xs:documentation>A component that tries to automatically recognise elements that reveal contradiction in a text</xs:documentation>
-								<xs:appinfo>
-									<xs:broader>analyzer</xs:broader>
-									<label>Contradiction detector</label>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="eventExtractor">
-							<xs:annotation>
-								<xs:documentation>A component that tries to extract information related to incidents referred to in a text</xs:documentation>
-								<xs:appinfo>
-									<xs:broader>analyzer</xs:broader>
-									<label>Event extractor</label>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="persuasiveExpressionMiner">
-							<xs:annotation>
-								<xs:documentation>A component that tries to identify persuasive expressions in a given text</xs:documentation>
-								<xs:appinfo>
-									<label>Persuasive expression miner</label>
-									<xs:broader>analyzer</xs:broader>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="informationExtractor">
-							<xs:annotation>
-								<xs:documentation>A component that automatically extracts structured information from unstructured and/or semi-structured machine-readable documents</xs:documentation>
-								<xs:appinfo>
-									<xs:broader>analyzer</xs:broader>
-									<label>Information extractor</label>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="lexiconExtractorFromCorpora">
-							<xs:annotation>
-								<xs:documentation>A component that extracts structured lexical resources from corpora</xs:documentation>
-								<xs:appinfo>
-									<xs:broader>analyzer</xs:broader>
-									<label>Lexicon extractor from corpora</label>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="lexiconExtractorFromLexica">
-							<xs:annotation>
-								<xs:documentation>A component that extracts specific lexical information contained in other lexica</xs:documentation>
-								<xs:appinfo>
-									<xs:broader>analyzer</xs:broader>
-									<label>Lexicon extractor from lexica</label>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="wordSenseDisambiguator">
-							<xs:annotation>
-								<xs:documentation>A component that tries to identify which sense of a word (i.e. meaning) is used in a sentence, when the word has multiple meanings (Source: wikipedia)</xs:documentation>
-								<xs:appinfo>
-									<xs:broader>analyzer</xs:broader>
-									<label>Word sense disambiguator</label>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						<xs:enumeration value="other">
-							<xs:annotation>
-								<xs:documentation>Value for componentType, to be used when the desired value is not included in the listed values</xs:documentation>
-								<xs:appinfo>
-									<label>Other</label>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
-						
-					</xs:restriction>
-				</xs:simpleType>
+			<xs:element minOccurs="0" name="validationInfos">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:validationInfo"/>
+					</xs:sequence>
+				</xs:complexType>
 			</xs:element>
+			<xs:element minOccurs="0" ref="ms:usageInfo"/>
 			<xs:element name="application" type="xs:boolean">
 				<xs:annotation>
 					<xs:documentation>Indicates whether the component can be used as an integrated end-user application</xs:documentation>
@@ -665,39 +58,41 @@
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="applicationFunction" type="ms:applicationType">
-				<xs:annotation>
-					<xs:documentation>Specifies the type of an end-user application, in terms of the function/task it performs</xs:documentation>
-					<xs:appinfo>
-						<relation>one-to-many</relation>
-						<label>Type of application</label>
-						<usage>Show if application=yes; mandatory for applications</usage>
-					</xs:appinfo>
-				</xs:annotation>
+			<xs:element name="functionInfo">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="function" type="ms:operationType">
+							<xs:annotation>
+								<xs:documentation>Specifies the operation/function/task the component/application performs</xs:documentation>
+								<xs:appinfo>
+									<relation>one-to-many</relation>
+									<label>Type of operation</label>
+									<label-plural>Types of operation</label-plural>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="functionOther" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
 			</xs:element>
-			<xs:element minOccurs="0" name="workflow" type="xs:boolean">
-				<xs:annotation>
-					<xs:documentation>Indicates whether the component is a workflow, i.e. consists of other components in a linear or branching execution</xs:documentation>
-					<xs:appinfo>
-						<label>Workflow</label>
-						<label-plural>Workflows</label-plural>
-					</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="workflowDescription" type="xs:string">
-				<xs:annotation>
-					<xs:documentation>Reserved for the description of workflow (most probably in Galaxy); provides information on the components that the workflow consists of and how it should be executed</xs:documentation>
-					<xs:appinfo>
-						<label>Workflow description</label>
-						<label-plural>Workflow descriptions</label-plural>
-						<usage>Show only if workflow=yes; mandatory for workflows</usage>
-					</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
+			
 			<xs:element name="distributionInfos">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="unbounded" ref="ms:componentDistributionInfo"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element ref="ms:rightsInfo"/>
+			<xs:element minOccurs="0" name="parameterInfos">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:parameterInfo">
+							<xs:annotation>
+								<xs:appinfo>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -716,6 +111,15 @@
 						<label>Information on output</label>
 					</xs:appinfo>
 				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="previousAnnotationTypesPolicy">
+				<xs:simpleType>
+					<xs:annotation><xs:appinfo><jaxb:typesafeEnumClass name="previousAnnotationTypesPolicyEnum"/></xs:appinfo></xs:annotation><xs:restriction base="xs:string">
+						<xs:enumeration value="keep"/>
+						<xs:enumeration value="modify"/>
+						<xs:enumeration value="drop"/>
+					</xs:restriction>
+				</xs:simpleType>
 			</xs:element>
 			<xs:element minOccurs="0" name="componentDependencies">
 				<xs:complexType>
@@ -741,6 +145,7 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
+						<xs:element minOccurs="0" name="mlModel" type="ms:relatedResourceType"/>
 						<xs:element minOccurs="0" name="softwareLibraries">
 							<xs:complexType>
 								<xs:sequence>
@@ -760,6 +165,26 @@
 						<recommended>true</recommended>
 					</xs:appinfo>
 				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="keywords">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:keyword"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" name="domains">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:domain">
+							<xs:annotation>
+								<xs:appinfo>
+									<recommended>true</recommended>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" name="scmInfo">
 				<xs:annotation>
@@ -903,6 +328,10 @@
 								</xs:appinfo>
 							</xs:annotation>
 						</xs:enumeration>
+						<xs:enumeration value="url"/>
+						<xs:enumeration value="document"/>
+						<xs:enumeration value="corpora"/>
+						<xs:enumeration value="component"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -930,6 +359,13 @@
 						<label-plural>Parameter default values</label-plural>
 					</xs:appinfo>
 				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="dataFormats">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:dataFormatInfo"/>
+					</xs:sequence>
+				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -978,7 +414,7 @@
 									</xs:enumeration>
 									<xs:enumeration value="lexicalConceptualResource">
 										<xs:annotation>
-											<xs:documentation>For components that take as input a lexical or conceptual resource (e.g. lexicon, term list, ontology etc.) in order to perform operations on it (and not use it as an ancillary/reference resource, e.g. for annotating a document)</xs:documentation>
+											<xs:documentation>For components that take as input a lexical or conceptual resource (e.g. lexicon, term list, ontology etc.) in order to perform operations on it or produce it as an output (e.g. a converter between two lexica or an extractor of lemmas from documents)</xs:documentation>
 											<xs:appinfo>
 												<label>Lexical/Conceptual resource</label>
 											</xs:appinfo>
@@ -986,7 +422,7 @@
 									</xs:enumeration>
 									<xs:enumeration value="languageDescription">
 										<xs:annotation>
-											<xs:documentation>For components that take as input a language description (e.g. a grammar) in order to perform operations on it (and not use it as an ancillary/reference resource, e.g. for parsing a document)</xs:documentation>
+											<xs:documentation>For components that take as input (in order to perform operations on it) or produce as output a language description (e.g. a grammar or a machine learning model); examples include converters between two grammars, a ML model trainer, etc.</xs:documentation>
 											<xs:appinfo>
 												<label>Language description</label>
 											</xs:appinfo>
@@ -1004,8 +440,10 @@
 					<xs:sequence>
 						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:dataFormatInfo">
 							<xs:annotation>
+								<xs:documentation>Specifies the format that is used since often the mime type will not be sufficient for machine processing; NOTE: normally the format should be represented as a combination of the mimetype (e.g. application/xml) and some name and link to the documentation about the supplementary conventions used (e.g xces, alvisED etc.)</xs:documentation>
 								<xs:appinfo>
-									<recommended>true</recommended>
+									<xs:label>Data format</xs:label>
+									<usage-ugc>Automatically filled in with the dataFormat of the publications</usage-ugc>
 								</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
@@ -1038,6 +476,13 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+			<xs:element minOccurs="0" name="annotationTypes">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:annotationTypeInfo"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 			<xs:element minOccurs="0" ref="ms:typesystem">
 				<xs:annotation>
 					<xs:appinfo>
@@ -1045,20 +490,8 @@
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
+			
 			<xs:element minOccurs="0" ref="ms:annotationSchema"/>
-			<xs:element minOccurs="0" name="annotationLevels">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:annotationLevel">
-							<xs:annotation>
-								<xs:appinfo>
-									<recommended>true</recommended>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
 			<xs:element minOccurs="0" ref="ms:annotationResource">
 				<xs:annotation>
 					<xs:appinfo>
@@ -1066,41 +499,9 @@
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="parameterInfos">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:parameterInfo">
-							<xs:annotation>
-								<xs:appinfo>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="domains">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:domain">
-							<xs:annotation>
-								<xs:appinfo>
-									<recommended>true</recommended>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			
-			<xs:element minOccurs="0" name="keywords">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:keyword"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			
 			<xs:element minOccurs="0" ref="ms:samplesLocation"/>
+			
+			
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="componentEvaluationInfoType">
@@ -1414,6 +815,7 @@
 						<xs:enumeration value="UIMA"/>
 						<xs:enumeration value="GATE"/>
 						<xs:enumeration value="AlvisNLP"/>
+						<xs:enumeration value="Galaxy"/>
 						<xs:enumeration value="other"/>
 					</xs:restriction>
 				</xs:simpleType>

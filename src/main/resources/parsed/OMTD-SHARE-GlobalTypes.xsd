@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" jaxb:extensionBindingPrefixes="xjc simplify" jaxb:version="1.0" targetNamespace="http://www.meta-share.org/OMTD-SHARE_XMLSchema" version="2.0.1" xml:lang="en" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:ms="http://www.meta-share.org/OMTD-SHARE_XMLSchema" xmlns:simplify="http://jaxb2-commons.dev.java.net/basic/simplify" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" ?><xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" jaxb:extensionBindingPrefixes="xjc simplify" jaxb:version="1.0" targetNamespace="http://www.meta-share.org/OMTD-SHARE_XMLSchema" version="3.0.0" xml:lang="en" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:ms="http://www.meta-share.org/OMTD-SHARE_XMLSchema" xmlns:simplify="http://jaxb2-commons.dev.java.net/basic/simplify" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<xs:include schemaLocation="./OMTD-SHARE-ISOVocabularies.xsd"/>
 	<xs:include schemaLocation="./OMTD-SHARE-Actors.xsd"/>
 	<xs:include schemaLocation="./OMTD-SHARE-Distributions.xsd"/>
@@ -263,9 +263,8 @@
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:positiveInteger">
-						<xs:totalDigits value="2"/>
-						<xs:minExclusive value="01"/>
-						<xs:maxExclusive value="31"/>
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="31"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -278,9 +277,8 @@
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:positiveInteger">
-						<xs:minExclusive value="01"/>
-						<xs:maxExclusive value="12"/>
-						<xs:totalDigits value="2"/>
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="12"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -293,9 +291,9 @@
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:positiveInteger">
-						<xs:minExclusive value="1400"/>
-						<xs:maxExclusive value="2100"/>
 						<xs:totalDigits value="4"/>
+						<xs:minInclusive value="1400"/>
+						<xs:maxInclusive value="2100"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -319,62 +317,15 @@
 			<xs:element ref="ms:dateRange"/>
 		</xs:choice>
 	</xs:complexType>
-	<xs:complexType name="languageType">
+	<xs:element name="languageId" type="ms:languageIdType">
 		<xs:annotation>
-			<xs:documentation>The container for the language elements (i.e. identifier according to BCP47 guidelines and all the elements that produce this id)</xs:documentation>
-		<xs:appinfo><jaxb:class name="Language"/></xs:appinfo></xs:annotation>
-		<xs:sequence>
-			<xs:element name="languageTag">
-				<xs:annotation>
-					<xs:documentation>The identifier of the language that is included in the resource or supported by the component, according to the IETF BCP47 guidelines</xs:documentation>
-					<xs:appinfo>
-						<label>Language</label>
-						<usage>in the XSD there is no validation as to the validity of the id, but the system validates the input metadata and the editor produces the correct id on the basis of the subelements (language, script, region and variant)</usage>
-						<sameAs>dct:language</sameAs>
-					</xs:appinfo>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="100"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:sequence minOccurs="0">
-				<xs:element name="languageId" type="ms:languageIdType">
-					<xs:annotation>
-						<xs:documentation>The identifier of the language subelement according to the IETF BCP47 guidelines (i.e. ISO 639-3 codes when existing supplemented with ISO 639-3 codes for new entries)</xs:documentation>
-						<xs:appinfo>
-							<label>Language identifier</label>
-						</xs:appinfo>
-					</xs:annotation>
-				</xs:element>
-				<xs:element minOccurs="0" name="scriptId" type="ms:scriptIdType">
-					<xs:annotation>
-						<xs:documentation>The identifier of the script subelement according to the IETF BCP47 guidelines (i.e. ISO 15924 codes)</xs:documentation>
-						<xs:appinfo>
-							<label>Script identifier</label>
-						</xs:appinfo>
-					</xs:annotation>
-				</xs:element>
-				<xs:element minOccurs="0" name="regiontId" type="ms:regionIdType">
-					<xs:annotation>
-						<xs:documentation>The identifier of the region subelement according to the IETF BCP47 guidelines (i.e. ISO 3166 codes)</xs:documentation>
-						<xs:appinfo>
-							<label>Region identifier</label>
-						</xs:appinfo>
-					</xs:annotation>
-				</xs:element>
-				<xs:element minOccurs="0" name="variantId" type="ms:variantIdType">
-					<xs:annotation>
-						<xs:documentation>The identifier of the variant subelement according to the IETF BCP47 guidelines</xs:documentation>
-						<xs:appinfo>
-							<label>Variant identifier</label>
-						</xs:appinfo>
-					</xs:annotation>
-				</xs:element>
-			</xs:sequence>
-		</xs:sequence>
-	</xs:complexType>
+			<xs:documentation>The identifier of the language subelement according to the IETF BCP47 guidelines (i.e. ISO 639-3 codes when existing supplemented with ISO 639-3 codes for new entries)</xs:documentation>
+			<xs:appinfo>
+				<label>Language identifier</label>
+			</xs:appinfo>
+		</xs:annotation>
+	</xs:element>
+	
 	
 	<xs:complexType name="metadataIdentifierType">
 		<xs:annotation>
@@ -425,6 +376,9 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:enumeration>
+							<xs:enumeration value="OMTD"/>
+							<xs:enumeration value="OpenAIRE"/>
+							<xs:enumeration value="CORE"/>
 							<xs:enumeration value="other">
 								<xs:annotation>
 									<xs:documentation>Value for metadataIdentifierSchemeName, to be used when the desired value is not included in the listed values</xs:documentation>
@@ -636,6 +590,15 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:enumeration>
+							<xs:enumeration value="OMTD-docker"/>
+							<xs:enumeration value="OMTD">
+								<xs:annotation>
+									<xs:documentation>Value for resourceIdentifierSchemeName, referring to OpenMinTeD (http://www.openminted.eu)</xs:documentation>
+									<xs:appinfo>
+										<label>OpenMinTeD id</label>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:enumeration>
 							<xs:enumeration value="other">
 								<xs:annotation>
 									<xs:documentation>Value for resourceSchemeName, to be used when the desired value is not included in the listed values</xs:documentation>
@@ -824,6 +787,22 @@
 									<xs:documentation>Value for publicationIdentifierSchemeName, referring to the PMID (PubMed Identifier, https://www.ncbi.nlm.nih.gov/pmc/pmctopmid/)</xs:documentation>
 									<xs:appinfo>
 										<label>PMID (PubMed Identifier)</label>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="OpenAIRE">
+								<xs:annotation>
+									<xs:documentation>Value for publicationIdentifierSchemeName, referring to the OpenAIRE identifier (www.openaire.eu)</xs:documentation>
+									<xs:appinfo>
+										<label>OpenAIRE Identifier</label>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="CORE">
+								<xs:annotation>
+									<xs:documentation>Value for publicationIdentifierSchemeName, referring to the CORE identifier (core.ac.uk)</xs:documentation>
+									<xs:appinfo>
+										<label>CORE Identifier</label>
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:enumeration>
@@ -1187,7 +1166,7 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="affiliatedOrganization" type="ms:organizationInfoType">
+			<xs:element minOccurs="0" name="affiliatedOrganization" type="ms:organizationInfoType">
 				<xs:annotation>
 					<xs:documentation>The organization to which the group is affiliated</xs:documentation>
 					<xs:appinfo>
@@ -1252,7 +1231,7 @@
 			<xs:element minOccurs="0" name="languages">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" name="journalLanguage" type="ms:languageType"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="journalLanguage" type="ms:languageIdType"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -1355,14 +1334,7 @@
 				<tip>The preferred practice is to provide DOI's or URL links to the relevant documents in the &quot;publicationIdentifier&quot; or a bibtex record in the &quot;unstructured document&quot; field; in this way, automatic linking to the relevant information will be possible</tip>
 			<jaxb:class name="RelatedDocumentInfo"/></xs:appinfo>
 		</xs:annotation>
-		<xs:choice>
-			<xs:annotation><xs:appinfo><simplify:as-element-property/></xs:appinfo></xs:annotation><xs:element name="publicationIdentifiers">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" ref="ms:publicationIdentifier"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
+		<xs:sequence>
 			<xs:element name="documentUnstructured">
 				<xs:annotation>
 					<xs:documentation>Used to encode a bibliographic record, preferrably in the form of a bibtex record or as a free text description</xs:documentation>
@@ -1377,12 +1349,19 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-		</xs:choice>
+			<xs:element minOccurs="0" name="publicationIdentifiers">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" ref="ms:publicationIdentifier"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 	
 	<xs:complexType name="baseMetadataRecord">
 		<xs:sequence>
-			<xs:element name="metadataHeaderInfo" type="ms:metadataHeaderInfoType"/>
+			<xs:element minOccurs="0" name="metadataHeaderInfo" type="ms:metadataHeaderInfoType"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="metadataHeaderInfoType">

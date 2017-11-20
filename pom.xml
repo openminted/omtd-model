@@ -136,7 +136,7 @@
               <workingDirectory>src/main/resources/parsed</workingDirectory>
               <arguments>
                 <argument>enum.py</argument>
-                <argument>-d../xsd/OMTD-SHARE v201 XSD/</argument>
+                <argument>-d../xsd/Schema/</argument>
                 <argument>-peu.openminted.registry.domain</argument>
               </arguments>
             </configuration>

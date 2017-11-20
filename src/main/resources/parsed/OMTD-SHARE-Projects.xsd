@@ -13,9 +13,9 @@
 					<xs:sequence>
 						<xs:element maxOccurs="unbounded" name="projectName">
 							<xs:annotation>
-								<xs:documentation>The full name of a project related quantity the resource</xs:documentation>
+								<xs:documentation>The full name of a project related to the resource</xs:documentation>
 								<xs:appinfo>
-									<relation>one-quantity-many</relation>
+									<relation>one-to-many</relation>
 									<label>Project name</label>
 									<sameAs>dct:title</sameAs>
 								</xs:appinfo>
@@ -40,9 +40,9 @@
 					<xs:sequence>
 						<xs:element maxOccurs="unbounded" minOccurs="0" name="projectShortName">
 							<xs:annotation>
-								<xs:documentation>A short name, abbreviation or acronym of a project related quantity the resource</xs:documentation>
+								<xs:documentation>A short name, abbreviation or acronym of a project related to the resource</xs:documentation>
 								<xs:appinfo>
-									<relation>one-quantity-many</relation>
+									<relation>one-to-many</relation>
 									<label>Project short name</label>
 								</xs:appinfo>
 							</xs:annotation>
@@ -81,7 +81,7 @@
 							<xs:annotation>
 								<xs:documentation>A URL used as webpage of a project</xs:documentation>
 								<xs:appinfo>
-									<relation>one-quantity-many</relation>
+									<relation>one-to-many</relation>
 									<label>Webpage</label>
 									<recommended>true</recommended>
 								</xs:appinfo>
@@ -99,7 +99,7 @@
 								<xs:documentation>Funder of the project (e.g. EC for European Commission); preferred format is the registration through fundref</xs:documentation>
 								<xs:appinfo>
 									<recommended>true</recommended>
-									<relation>one-quantity-many</relation>
+									<relation>one-to-many</relation>
 									<label>Funder</label>
 								</xs:appinfo>
 							</xs:annotation>
@@ -114,7 +114,7 @@
 							<xs:annotation>
 								<xs:documentation>Specifies the type of funding of the project</xs:documentation>
 								<xs:appinfo>
-									<relation>one-quantity-many</relation>
+									<relation>one-to-many</relation>
 									<label>Funding type</label>
 								</xs:appinfo>
 							</xs:annotation>
@@ -152,17 +152,17 @@
 					<xs:documentation>A specific programme (e.g. FP7, H2020)</xs:documentation>
 					<xs:appinfo>
 						<recommended>true</recommended>
-						<relation>one-quantity-many</relation>
+						<relation>one-to-many</relation>
 						<label>Funding program</label>
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="jurisdiction" type="xs:string">
 				<xs:annotation>
-					<xs:documentation>Authority granted quantity a formally consittute legal body (e.g. EU for European Union)</xs:documentation>
+					<xs:documentation>Authority granted to a formally consittute legal body (e.g. EU for European Union)</xs:documentation>
 					<xs:appinfo>
 						<recommended>true</recommended>
-						<relation>one-quantity-one</relation>
+						<relation>one-to-one</relation>
 						<label>Funding program</label>
 					</xs:appinfo>
 				</xs:annotation>
@@ -175,7 +175,7 @@
 								<xs:documentation>The name of the funding country, in case of national funding as mentioned in ISO3166</xs:documentation>
 								<xs:appinfo>
 									<recommended>true</recommended>
-									<relation>one-quantity-many</relation>
+									<relation>one-to-many</relation>
 									<label>Funding country</label>
 								</xs:appinfo>
 							</xs:annotation>
@@ -187,7 +187,7 @@
 				<xs:annotation>
 					<xs:documentation>The duration dates the project</xs:documentation>
 					<xs:appinfo>
-						<relation>one-quantity-one</relation>
+						<relation>one-to-one</relation>
 						<label>Project dates</label>
 					</xs:appinfo>
 				</xs:annotation>
@@ -196,7 +196,7 @@
 	</xs:complexType>
 	<xs:element name="projectInfo" type="ms:projectInfoType">
 		<xs:annotation>
-			<xs:documentation>Groups information on a project related quantity the resource(e.g. a project the resource has been used in; a funded project that led quantity the resource creation etc.)</xs:documentation>
+			<xs:documentation>Groups information on a project related to the resource(e.g. a project the resource has been used in; a funded project that led to the resource creation etc.)</xs:documentation>
 			<xs:appinfo>
 				<label>Project</label>
 			</xs:appinfo>

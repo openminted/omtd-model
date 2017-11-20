@@ -1,23 +1,12 @@
-<?xml version="1.0" ?><xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" jaxb:extensionBindingPrefixes="xjc simplify" jaxb:version="1.0" targetNamespace="http://www.meta-share.org/OMTD-SHARE_XMLSchema" version="2.0.1" xml:lang="en" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:ms="http://www.meta-share.org/OMTD-SHARE_XMLSchema" xmlns:simplify="http://jaxb2-commons.dev.java.net/basic/simplify" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" ?><xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" jaxb:extensionBindingPrefixes="xjc simplify" jaxb:version="1.0" targetNamespace="http://www.meta-share.org/OMTD-SHARE_XMLSchema" version="3.0.0" xml:lang="en" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:ms="http://www.meta-share.org/OMTD-SHARE_XMLSchema" xmlns:simplify="http://jaxb2-commons.dev.java.net/basic/simplify" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<xs:include schemaLocation="./OMTD-SHARE-Actors.xsd"/>
 	<xs:include schemaLocation="./OMTD-SHARE-GlobalTypes.xsd"/>
 	<xs:include schemaLocation="./OMTD-SHARE-TextSpecific.xsd"/>
+	<xs:include schemaLocation="./OMTD-SHARE-ControlledVocabs.xsd"/>
 	
 	<xs:element name="distributionLoc">
 		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="ms:distributionMedium"/>
-				<xs:element minOccurs="0" ref="ms:distributionLocation">
-					<xs:annotation>
-						<xs:documentation>Any url where the resource can be downloaded from; please, use if the resource is &quot;downloadable&quot; and you have not uploaded the resource in the repository</xs:documentation>
-						<xs:appinfo>
-							<relation>one-to-many</relation>
-							<label>Distribution URL</label>
-							<broader>dcat:downloadURL</broader>
-						</xs:appinfo>
-					</xs:annotation>
-				</xs:element>
-			</xs:sequence>
+			<xs:sequence/>
 		</xs:complexType>
 	</xs:element>
 	<xs:complexType name="documentDistributionInfoType">
@@ -27,7 +16,7 @@
 			<jaxb:class name="DocumentDistributionInfo"/></xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element ref="ms:distributionLoc"/>
+			<xs:element ref="ms:distributionLocation"/>
 			<xs:element name="hashkey" type="xs:string">
 				<xs:annotation>
 					<xs:documentation>Specifies the hashkey for indexing and downloading the publication</xs:documentation>
@@ -38,26 +27,7 @@
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="fullText">
-				<xs:annotation>
-					<xs:documentation>The full text of the publication in simple text format</xs:documentation>
-					<xs:appinfo>
-						<label>Full text</label>
-					</xs:appinfo>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:simpleContent>
-						<xs:restriction base="ms:myString"/>
-					</xs:simpleContent>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" ref="ms:dataFormatInfo">
-				<xs:annotation>
-					<xs:appinfo>
-						<recommended>true</recommended>
-					</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
+			<xs:element minOccurs="0" ref="ms:dataFormatInfo"/>
 			<xs:element maxOccurs="1" minOccurs="0" ref="ms:characterEncoding">
 				<xs:annotation>
 					<xs:appinfo>
@@ -72,95 +42,6 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element ref="ms:rightsInfo"/>
-			<xs:element minOccurs="0" name="copyrightStatements">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:copyrightStatement">
-							<xs:annotation>
-								<xs:documentation>A free text statement that may be included with the resource, usually containing the name(s) of copyright holders and licensing terms (intended for resources that already have such a statement); the element can be repeated for the different language versions using the &quot;lang&quot; attribute to specify the language.</xs:documentation>
-								<xs:appinfo>
-									<label>Copyright statement</label>
-									<broadMatch>dct:rights</broadMatch>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="attributionTexts">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:attributionText">
-							<xs:annotation>
-								<xs:documentation>The text that must be quoted for attribution purposes when using a resource - for cases where a resource is provided with a restriction on attribution; you can use a standard text such as &quot;Resource A by Resource Creator/Owner B used under licence C as accessed at D&quot;</xs:documentation>
-								<xs:appinfo>
-									<relation>one-to-many</relation>
-									<label>Attribution text</label>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="rightsHolders">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:rightsHolder">
-							<xs:annotation>
-								<xs:documentation>Groups information on a person or an organization who holds the Copyright and SGDB rights that subsist in the resource. The rights holder could be different from the creator that may have assigned the rights to another person or organization (e.g. an author as a creator assigns her rights to the publisher who is the rights holder) and the distributor that holds a specific licence (i.e. a permission) to distribute the work.</xs:documentation>
-								<xs:appinfo>
-									<relation>many-to-many</relation>
-									<label>Rights holder</label>
-									<broadMatch>dct:rightsHolder</broadMatch>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" ref="ms:availabilityStartDate">
-				<xs:annotation>
-					<xs:documentation>Specifies the start date of availability of a resource - only for cases where a resource is available for a restricted time period.</xs:documentation>
-					<xs:appinfo>
-						<relation>one-to-one</relation>
-						<label>Availability start date</label>
-					</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" ref="ms:availabilityEndDate">
-				<xs:annotation>
-					<xs:documentation>Specifies the end date of availability of a resource - only for cases where a resource is available for a restricted time period.</xs:documentation>
-					<xs:appinfo>
-						<relation>one-to-one</relation>
-						<label>Availability end date</label>
-					</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" ref="ms:fee">
-				<xs:annotation>
-					<xs:documentation>Specifies the costs that are required to access the resource, a fragment of the resource or to use a component</xs:documentation>
-					<xs:appinfo>
-						<relation>one-to-one</relation>
-						<label>Fee</label>
-					</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="userTypes">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:userType">
-							<xs:annotation>
-								<xs:documentation>The conditions imposed by the user type (for instance, use may be allowed only for academic users or the fee may vary depending on the user type)</xs:documentation>
-								<xs:appinfo>
-									<relation>one-to-many</relation>
-									<label>User type</label>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="componentDistributionInfoType">
@@ -172,106 +53,86 @@
 		</xs:annotation>
 		<xs:sequence>
 			
-			<xs:element name="componentLoc">
+			
+			<xs:element name="componentDistributionForm">
 				<xs:annotation>
-					<xs:documentation>Information on how to access/download and invoke a component</xs:documentation>
+					<xs:documentation>Specifies the form of distribution of the component (e.g. as source code, executable programme etc.)</xs:documentation>
 					<xs:appinfo>
-						<label>Component access information</label>
+						<label>Component distribution form</label>
 					</xs:appinfo>
 				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="componentDistributionForm">
+				<xs:simpleType>
+					<xs:annotation><xs:appinfo><jaxb:typesafeEnumClass name="componentDistributionFormEnum"/></xs:appinfo></xs:annotation><xs:restriction base="xs:string">
+						<xs:enumeration value="webService">
 							<xs:annotation>
-								<xs:documentation>Specifies the form of distribution of the component (e.g. as source code, executable programme etc.)</xs:documentation>
+								<xs:documentation>A component accessible through remote invocation typically using some REST-style APIs or SOAP protocols.</xs:documentation>
 								<xs:appinfo>
-									<label>Component distribution form</label>
+									<label>web service</label>
 								</xs:appinfo>
 							</xs:annotation>
-							<xs:simpleType>
-								<xs:annotation><xs:appinfo><jaxb:typesafeEnumClass name="componentDistributionFormEnum"/></xs:appinfo></xs:annotation><xs:restriction base="xs:string">
-									<xs:enumeration value="webService">
-										<xs:annotation>
-											<xs:documentation>A component accessible through remote invocation typically using some REST-style APIs or SOAP protocols.</xs:documentation>
-											<xs:appinfo>
-												<label>web service</label>
-											</xs:appinfo>
-										</xs:annotation>
-									</xs:enumeration>
-									<xs:enumeration value="sourceCode">
-										<xs:annotation>
-											<xs:documentation>The distributable (delivery) form of a component containing the source code</xs:documentation>
-											<xs:appinfo>
-												<label>source code</label>
-											</xs:appinfo>
-										</xs:annotation>
-									</xs:enumeration>
-									<xs:enumeration value="executableCode">
-										<xs:annotation>
-											<xs:documentation>The distributable (delivery) form of a component with the executable code, i.e. that can be run on computer</xs:documentation>
-											<xs:appinfo>
-												<label>executable code</label>
-											</xs:appinfo>
-										</xs:annotation>
-									</xs:enumeration>
-									<xs:enumeration value="sourceAndExecutableCode">
-										<xs:annotation>
-											<xs:documentation>The distributable (delivery) form of a component that contains both the source and the executable codes</xs:documentation>
-											<xs:appinfo>
-												<label>source and executable code</label>
-											</xs:appinfo>
-										</xs:annotation>
-									</xs:enumeration>
-									<xs:enumeration value="dockerImage">
-										<xs:annotation>
-											<xs:documentation>For components delivered as docker images</xs:documentation>
-											<xs:appinfo>
-												<label>Docker image</label>
-											</xs:appinfo>
-										</xs:annotation>
-									</xs:enumeration>
-									<xs:enumeration value="wrappedInGalaxy">
-										<xs:annotation>
-											<xs:documentation>For forms of components that are delivered wrapped in the Galaxy workflow system</xs:documentation>
-											<xs:appinfo>
-												<label>Wrapped in Galaxy</label>
-											</xs:appinfo>
-										</xs:annotation>
-									</xs:enumeration>
-									<xs:enumeration value="workflowFile">
-										<xs:annotation>
-											<xs:documentation>A workflow description file following a standard language, such as a CWL</xs:documentation>
-											<xs:appinfo>
-												<label>Workflow file</label>
-											</xs:appinfo>
-										</xs:annotation>
-									</xs:enumeration>
-									<xs:enumeration value="other">
-										<xs:annotation>
-											<xs:documentation>Value to be used when none of the enumerated values applies</xs:documentation>
-											<xs:appinfo>
-												<label>Other</label>
-											</xs:appinfo>
-										</xs:annotation>
-									</xs:enumeration>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
-						<xs:element ref="ms:distributionLocation"/>
-						<xs:element minOccurs="0" name="command" type="xs:string">
+						</xs:enumeration>
+						<xs:enumeration value="sourceCode">
 							<xs:annotation>
-								<xs:documentation>A command line used for the execution of a component</xs:documentation>
+								<xs:documentation>The distributable (delivery) form of a component containing the source code</xs:documentation>
 								<xs:appinfo>
-									<relation>one-to-many</relation>
-									<label>Command</label>
-									<usage>To show if componentDistributionForm=webService</usage>
+									<label>source code</label>
 								</xs:appinfo>
 							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
+						</xs:enumeration>
+						<xs:enumeration value="executableCode">
+							<xs:annotation>
+								<xs:documentation>The distributable (delivery) form of a component with the executable code, i.e. that can be run on computer</xs:documentation>
+								<xs:appinfo>
+									<label>executable code</label>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="sourceAndExecutableCode">
+							<xs:annotation>
+								<xs:documentation>The distributable (delivery) form of a component that contains both the source and the executable codes</xs:documentation>
+								<xs:appinfo>
+									<label>source and executable code</label>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="dockerImage">
+							<xs:annotation>
+								<xs:documentation>For components delivered as docker images</xs:documentation>
+								<xs:appinfo>
+									<label>Docker image</label>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="galaxyWorkflow">
+							<xs:annotation>
+								<xs:documentation>For forms of components that are delivered wrapped in the Galaxy workflow system</xs:documentation>
+								<xs:appinfo>
+									<label>Galaxy workflow</label>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="workflowFile">
+							<xs:annotation>
+								<xs:documentation>A workflow description file following a standard language, such as a CWL</xs:documentation>
+								<xs:appinfo>
+									<label>Workflow file</label>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
 			</xs:element>
-			
+			<xs:element ref="ms:distributionLocation"/>
+			<xs:element minOccurs="0" name="command" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>A command line used to invoke a component</xs:documentation>
+					<xs:appinfo>
+						<relation>one-to-many</relation>
+						<label>Command</label>
+						<usage>To show if componentDistributionForm=dockerImage</usage>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="webServiceType">
 				<xs:annotation>
 					<xs:documentation>A classification of web services based on the protocol used for accessing them</xs:documentation>
@@ -282,19 +143,19 @@
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:annotation><xs:appinfo><jaxb:typesafeEnumClass name="webServiceTypeEnum"/></xs:appinfo></xs:annotation><xs:restriction base="xs:string">
-						<xs:enumeration value="SOAP">
-							<xs:annotation>
-								<xs:documentation>Web services that use SOAP (Simple Object Access Protocol)</xs:documentation>
-								<xs:appinfo>
-									<label>SOAP</label>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:enumeration>
 						<xs:enumeration value="REST">
 							<xs:annotation>
 								<xs:documentation>Web services that use REST (Representational State Transfer)</xs:documentation>
 								<xs:appinfo>
 									<label>REST</label>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="SOAP">
+							<xs:annotation>
+								<xs:documentation>Web services that use SOAP (Simple Object Access Protocol)</xs:documentation>
+								<xs:appinfo>
+									<label>SOAP</label>
 								</xs:appinfo>
 							</xs:annotation>
 						</xs:enumeration>
@@ -402,95 +263,6 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element ref="ms:rightsInfo"/>
-			<xs:element minOccurs="0" name="copyrightStatements">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:copyrightStatement">
-							<xs:annotation>
-								<xs:documentation>A free text statement that may be included with the resource, usually containing the name(s) of copyright holders and licensing terms (intended for resources that already have such a statement).</xs:documentation>
-								<xs:appinfo>
-									<label>Copyright statement</label>
-									<broadMatch>dct:rights</broadMatch>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="attributionTexts">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:attributionText">
-							<xs:annotation>
-								<xs:documentation>The text that must be quoted for attribution purposes when using a resource - for cases where a resource is provided with a restriction on attribution; you can use a standard text such as &quot;Resource A by Resource Creator/Owner B used under licence C as accessed at D&quot;</xs:documentation>
-								<xs:appinfo>
-									<relation>one-to-many</relation>
-									<label>Attribution text</label>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="rightsHolders">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:rightsHolder">
-							<xs:annotation>
-								<xs:documentation>Groups information on a person or an organization who holds the Copyright and SGDB rights that subsist in the resource. The rights holder could be different from the creator that may have assigned the rights to another person or organization (e.g. an author as a creator assigns her rights to the publisher who is the rights holder) and the distributor that holds a specific licence (i.e. a permission) to distribute the work.</xs:documentation>
-								<xs:appinfo>
-									<relation>many-to-many</relation>
-									<label>Rights holder</label>
-									<broadMatch>dct:rightsHolder</broadMatch>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" ref="ms:availabilityStartDate">
-				<xs:annotation>
-					<xs:documentation>Specifies the start date of availability of a resource - only for cases where a resource is available for a restricted time period.</xs:documentation>
-					<xs:appinfo>
-						<relation>one-to-one</relation>
-						<label>Availability start date</label>
-					</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" ref="ms:availabilityEndDate">
-				<xs:annotation>
-					<xs:documentation>Specifies the end date of availability of a resource - only for cases where a resource is available for a restricted time period.</xs:documentation>
-					<xs:appinfo>
-						<relation>one-to-one</relation>
-						<label>Availability end date</label>
-					</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" ref="ms:fee">
-				<xs:annotation>
-					<xs:documentation>Specifies the costs that are required to access the resource, a fragment of the resource or to use a component</xs:documentation>
-					<xs:appinfo>
-						<relation>one-to-one</relation>
-						<label>Fee</label>
-					</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="userTypes">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:userType">
-							<xs:annotation>
-								<xs:documentation>The conditions imposed by the user type (for instance, use may be allowed only for academic users or the fee may vary depending on the user type)</xs:documentation>
-								<xs:appinfo>
-									<relation>one-to-many</relation>
-									<label>User type</label>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="datasetDistributionInfoType">
@@ -500,7 +272,17 @@
 			<jaxb:class name="DatasetDistributionInfo"/></xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element maxOccurs="unbounded" ref="ms:distributionLoc"/>
+			<xs:element ref="ms:distributionMedium"/>
+			<xs:element minOccurs="0" ref="ms:distributionLocation">
+				<xs:annotation>
+					<xs:documentation>Any location where the resource can be downloaded from; please, use if the resource is &quot;downloadable&quot; and you have not uploaded the resource in the repository</xs:documentation>
+					<xs:appinfo>
+						<relation>one-to-many</relation>
+						<label>Distribution location</label>
+						<broader>dcat:downloadURL</broader>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="textFormats">
 				<xs:complexType>
 					<xs:sequence>
@@ -512,113 +294,6 @@
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:characterEncodingInfo"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="sizes">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:sizeInfo">
-							<xs:annotation>
-								<xs:appinfo>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element ref="ms:rightsInfo">
-				<xs:annotation>
-					<xs:appinfo>
-						<usage-ugc>To be automatically created by the system; use the values from the rightsInfo of the publications repeating them if there are multiple licenceInfo or rightsStatementsInfo with different values</usage-ugc>
-					</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="copyrightStatements">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:copyrightStatement">
-							<xs:annotation>
-								<xs:documentation>A free text statement that may be included with the resource, usually containing the name(s) of copyright holders and licensing terms (intended for resources that already have such a statement); the element can be repeated for the different language versions using the &quot;lang&quot; attribute to specify the language.</xs:documentation>
-								<xs:appinfo>
-									<label>Copyright statement</label>
-									<broadMatch>dct:rights</broadMatch>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="attributionTexts">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:attributionText">
-							<xs:annotation>
-								<xs:documentation>The text that must be quoted for attribution purposes when using a resource - for cases where a resource is provided with a restriction on attribution; you can use a standard text such as &quot;Resource A by Resource Creator/Owner B used under licence C as accessed at D&quot;</xs:documentation>
-								<xs:appinfo>
-									<relation>one-to-many</relation>
-									<label>Attribution text</label>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="rightsHolders">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:rightsHolder">
-							<xs:annotation>
-								<xs:documentation>Groups information on a person or an organization who holds the Copyright and SGDB rights that subsist in the resource. The rights holder could be different from the creator that may have assigned the rights to another person or organization (e.g. an author as a creator assigns her rights to the publisher who is the rights holder) and the distributor that holds a specific licence (i.e. a permission) to distribute the work.</xs:documentation>
-								<xs:appinfo>
-									<relation>many-to-many</relation>
-									<label>Rights holder</label>
-									<broadMatch>dct:rightsHolder</broadMatch>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" ref="ms:availabilityStartDate">
-				<xs:annotation>
-					<xs:documentation>Specifies the start date of availability of a resource - only for cases where a resource is available for a restricted time period.</xs:documentation>
-					<xs:appinfo>
-						<relation>one-to-one</relation>
-						<label>Availability start date</label>
-					</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" ref="ms:availabilityEndDate">
-				<xs:annotation>
-					<xs:documentation>Specifies the end date of availability of a resource - only for cases where a resource is available for a restricted time period.</xs:documentation>
-					<xs:appinfo>
-						<relation>one-to-one</relation>
-						<label>Availability end date</label>
-					</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" ref="ms:fee">
-				<xs:annotation>
-					<xs:documentation>Specifies the costs that are required to access the resource, a fragment of the resource or to use a component</xs:documentation>
-					<xs:appinfo>
-						<relation>one-to-one</relation>
-						<label>Fee</label>
-					</xs:appinfo>
-				</xs:annotation>
-			</xs:element>
-			<xs:element minOccurs="0" name="userTypes">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:userType">
-							<xs:annotation>
-								<xs:documentation>The conditions imposed by the user type (for instance, use may be allowed only for academic users or the fee may vary depending on the user type)</xs:documentation>
-								<xs:appinfo>
-									<relation>one-to-many</relation>
-									<label>User type</label>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -929,6 +604,14 @@
 								</xs:appinfo>
 							</xs:annotation>
 						</xs:enumeration>
+						<xs:enumeration value="notAvailable">
+							<xs:annotation>
+								<xs:documentation>Value for &quot;licence&quot;; to be used for resources that are distributed with open access rights but for which the licence has not been identified or further specified (from trusted sources such as OpenAIRE and CORE)</xs:documentation>
+								<xs:appinfo>
+									<label>Under negotiation</label>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:enumeration>
 						<xs:enumeration value="nonStandardLicenceTerms">
 							<xs:annotation>
 								<xs:documentation>Value for &quot;licence&quot;; to be used for resources that are licensed with a licence not included in the OMTD list of licences; more information on the licence must be provided in the relevant metadata elements</xs:documentation>
@@ -943,7 +626,7 @@
 				</xs:simpleType>
 			</xs:element>
 			
-			<xs:element maxOccurs="unbounded" minOccurs="0" name="nonStandardLicenceName">
+			<xs:element minOccurs="0" name="nonStandardLicenceName" type="xs:string">
 				<xs:annotation>
 					<xs:documentation>The name with which a licence is known; to be used for licences not included in the pre-defined list of licences</xs:documentation>
 					<xs:appinfo>
@@ -952,17 +635,6 @@
 						<usage>To appear only when licence=nonStandardLicenceTerms or proprietary</usage>
 					</xs:appinfo>
 				</xs:annotation>
-				<xs:complexType>
-					<xs:simpleContent>
-						<xs:restriction base="ms:myString">
-							<xs:maxLength value="100"/>
-						</xs:restriction>
-					</xs:simpleContent>
-				</xs:complexType>
-				<xs:unique name="uniqueLang23">
-					<xs:selector xpath="."/>
-					<xs:field xpath="@lang"/>
-				</xs:unique>
 			</xs:element>
 			<xs:element minOccurs="0" name="nonStandardLicenceTermsURL" type="ms:httpURI">
 				<xs:annotation>
@@ -1088,7 +760,7 @@
 			<xs:documentation>Groups information on the distribution of a dataset resource (multiple files)</xs:documentation>
 			<xs:appinfo>
 				<relation>one-to-many</relation>
-				<label>Document distribution</label>
+				<label>Dataset distribution</label>
 			</xs:appinfo>
 		</xs:annotation>
 	</xs:element>
@@ -1097,7 +769,7 @@
 			<xs:documentation>Groups information on the distributable form of a component (e.g. as a software code, an executable programme, a web service etc.)</xs:documentation>
 			<xs:appinfo>
 				<relation>one-to-many</relation>
-				<label>Document distribution</label>
+				<label>Component distribution</label>
 			</xs:appinfo>
 		</xs:annotation>
 	</xs:element>
@@ -1119,26 +791,79 @@
 		</xs:annotation>
 		<xs:complexType>
 			<xs:choice>
-				<xs:annotation><xs:appinfo><simplify:as-element-property/></xs:appinfo></xs:annotation><xs:sequence>
-					<xs:element name="licenceInfos">
-						<xs:complexType>
-							<xs:sequence>
-								<xs:element maxOccurs="unbounded" ref="ms:licenceInfo">
-									<xs:annotation>
-										<xs:documentation>Groups information on licences for the resource; can be repeated to allow for different modes of access and restrictions of use (e.g. free for academic use, on-a-fee basis for commercial use, download of a sample for free use etc.)</xs:documentation>
-										<xs:appinfo>
-											<relation>many-to-many</relation>
-											<label>Licence</label>
-										</xs:appinfo>
-									</xs:annotation>
-								</xs:element>
-							</xs:sequence>
-						</xs:complexType>
-					</xs:element>
-					
-					<xs:element minOccurs="0" ref="ms:rightsStatement"/>
-				</xs:sequence>
-				<xs:element minOccurs="1" ref="ms:rightsStatement"/>
+				<xs:element name="licenceInfos">
+					<xs:annotation>
+						<xs:appinfo>
+							<simplify:as-element-property/>
+						</xs:appinfo>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" ref="ms:licenceInfo">
+								<xs:annotation>
+									<xs:documentation>Groups information on licences for the resource; can be repeated to allow for different modes of access and restrictions of use (e.g. free for academic use, on-a-fee basis for commercial use, download of a sample for free use etc.)</xs:documentation>
+									<xs:appinfo>
+										<relation>many-to-many</relation>
+										<label>Licence</label>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element ref="ms:rightsStatement"/>
+				<xs:element minOccurs="0" ref="ms:attributionText">
+					<xs:annotation>
+						<xs:documentation>The text that must be quoted for attribution purposes when using a resource - for cases where a resource is provided with a restriction on attribution; you can use a standard text such as &quot;Resource A by Resource Creator/Owner B used under licence C as accessed at D&quot;</xs:documentation>
+						<xs:appinfo>
+							<relation>one-to-many</relation>
+							<label>Attribution text</label>
+						</xs:appinfo>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" ref="ms:copyrightStatement">
+					<xs:annotation>
+						<xs:documentation>A free text statement that may be included with the resource, usually containing the name(s) of copyright holders and licensing terms (intended for resources that already have such a statement).</xs:documentation>
+						<xs:appinfo>
+							<label>Copyright statement</label>
+							<broadMatch>dct:rights</broadMatch>
+						</xs:appinfo>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" ref="ms:availabilityStartDate">
+					<xs:annotation>
+						<xs:documentation>Specifies the start date of availability of a resource - only for cases where a resource is available for a restricted time period.</xs:documentation>
+						<xs:appinfo>
+							<relation>one-to-one</relation>
+							<label>Availability start date</label>
+						</xs:appinfo>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" ref="ms:availabilityEndDate">
+					<xs:annotation>
+						<xs:documentation>Specifies the end date of availability of a resource - only for cases where a resource is available for a restricted time period.</xs:documentation>
+						<xs:appinfo>
+							<relation>one-to-one</relation>
+							<label>Availability end date</label>
+						</xs:appinfo>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="rightsHolders">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:rightsHolder">
+								<xs:annotation>
+									<xs:documentation>Groups information on a person or an organization who holds the Copyright and SGDB rights that subsist in the resource. The rights holder could be different from the creator that may have assigned the rights to another person or organization (e.g. an author as a creator assigns her rights to the publisher who is the rights holder) and the distributor that holds a specific licence (i.e. a permission) to distribute the work.</xs:documentation>
+									<xs:appinfo>
+										<relation>many-to-many</relation>
+										<label>Rights holder</label>
+										<broadMatch>dct:rightsHolder</broadMatch>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
 			</xs:choice>
 		</xs:complexType>
 	</xs:element>
@@ -1203,7 +928,7 @@
 		</xs:annotation>
 	</xs:element>
 	
-	<xs:element name="copyrightStatement">
+	<xs:element name="copyrightStatement" type="xs:string">
 		<xs:annotation>
 			<xs:documentation>A free text statement that may be included with the resource, usually containing the name(s) of copyright holders and licensing terms (intended for resources that already have such a statement); the element can be repeated for the different language versions using the &quot;lang&quot; attribute to specify the language.</xs:documentation>
 			<xs:appinfo>
@@ -1211,19 +936,8 @@
 				<broadMatch>dct:rights</broadMatch>
 			</xs:appinfo>
 		</xs:annotation>
-		<xs:complexType>
-			<xs:simpleContent>
-				<xs:restriction base="ms:myString">
-					<xs:maxLength value="500"/>
-				</xs:restriction>
-			</xs:simpleContent>
-		</xs:complexType>
-		<xs:unique name="uniqueLang200">
-			<xs:selector xpath="."/>
-			<xs:field xpath="@lang"/>
-		</xs:unique>
 	</xs:element>
-	<xs:element name="attributionText">
+	<xs:element name="attributionText" type="xs:string">
 		<xs:annotation>
 			<xs:documentation>The text that must be quoted for attribution purposes when using a resource - for cases where a resource is provided with a restriction on attribution; you can use a standard text such as &quot;Resource A by Resource Creator/Owner B used under licence C as accessed at D&quot;</xs:documentation>
 			<xs:appinfo>
@@ -1231,17 +945,6 @@
 				<label>Attribution text</label>
 			</xs:appinfo>
 		</xs:annotation>
-		<xs:complexType>
-			<xs:simpleContent>
-				<xs:restriction base="ms:myString">
-					<xs:maxLength value="1000"/>
-				</xs:restriction>
-			</xs:simpleContent>
-		</xs:complexType>
-		<xs:unique name="uniqueLang12">
-			<xs:selector xpath="."/>
-			<xs:field xpath="@lang"/>
-		</xs:unique>
 	</xs:element>
 	<xs:element name="rightsHolder" type="ms:actorInfoType">
 		<xs:annotation>
