@@ -186,6 +186,7 @@
                 <arg>-Xsetters</arg>
                 <arg>-Xxew</arg>
                 <arg>-Xxew:instantiate lazy</arg>
+                <!--<arg>-Xxew:plural</arg>-->
                 <arg>-Xfixed-value</arg>
               </args>
               <plugins>
@@ -220,18 +221,25 @@
       <plugin>
         <groupId>cz.habarta.typescript-generator</groupId>
         <artifactId>typescript-generator-maven-plugin</artifactId>
-        <version>1.27.339</version>
+        <version>1.29.366</version>
         <executions>
           <execution>
             <id>generate1</id>
+            <!--<phase>process-classes</phase>-->
             <goals>
               <goal>generate</goal>
             </goals>
             <configuration>
               <jsonLibrary>jackson2</jsonLibrary>
               <outputFileType>implementationFile</outputFileType>
-              <!--<mapEnum>asEnum</mapEnum>-->
+              <mapEnum>asNumberBasedEnum</mapEnum>
               <mapClasses>asClasses</mapClasses>
+              <customTypeMappings>
+                <customTypeMapping>javax.xml.datatype.XMLGregorianCalendar:Date</customTypeMapping>
+              </customTypeMappings>
+              <customTypeNaming>
+                eu.openminted.registry.domain.Date:OMTDDate
+              </customTypeNaming>
               <classPatterns>
                 <pattern>eu.openminted.registry.domain.*</pattern>
               </classPatterns>

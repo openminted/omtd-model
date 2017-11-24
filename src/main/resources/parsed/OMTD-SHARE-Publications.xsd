@@ -705,18 +705,24 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element minOccurs="0" name="fullText">
-				<xs:annotation>
-					<xs:documentation>The full text of the publication in simple text format</xs:documentation>
-					<xs:appinfo>
-						<label>Full text</label>
-						<recommended>true</recommended>
-					</xs:appinfo>
-				</xs:annotation>
+			<xs:element minOccurs="0" name="fullTexts">
 				<xs:complexType>
-					<xs:simpleContent>
-						<xs:restriction base="ms:myString"/>
-					</xs:simpleContent>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="fullText">
+							<xs:annotation>
+								<xs:documentation>The full text of the publication in simple text format</xs:documentation>
+								<xs:appinfo>
+									<label>Full text</label>
+									<recommended>true</recommended>
+								</xs:appinfo>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:restriction base="ms:myString"/>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" name="abstracts">

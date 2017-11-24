@@ -307,6 +307,7 @@
 			<jaxb:class name="LicenceInfo"/></xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
+			
 			<xs:element name="licence">
 				<xs:annotation>
 					<xs:documentation>The licence of use for the resource</xs:documentation>
@@ -604,7 +605,7 @@
 								</xs:appinfo>
 							</xs:annotation>
 						</xs:enumeration>
-						<xs:enumeration value="notAvailable">
+						<xs:enumeration value="openAccessUnspecified">
 							<xs:annotation>
 								<xs:documentation>Value for &quot;licence&quot;; to be used for resources that are distributed with open access rights but for which the licence has not been identified or further specified (from trusted sources such as OpenAIRE and CORE)</xs:documentation>
 								<xs:appinfo>
@@ -620,12 +621,10 @@
 								</xs:appinfo>
 							</xs:annotation>
 						</xs:enumeration>
-						
-						
+						<xs:enumeration value="restrictedAccessUnspecified"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			
 			<xs:element minOccurs="0" name="nonStandardLicenceName" type="xs:string">
 				<xs:annotation>
 					<xs:documentation>The name with which a licence is known; to be used for licences not included in the pre-defined list of licences</xs:documentation>
@@ -790,13 +789,8 @@
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:complexType>
-			<xs:choice>
+			<xs:sequence>
 				<xs:element name="licenceInfos">
-					<xs:annotation>
-						<xs:appinfo>
-							<simplify:as-element-property/>
-						</xs:appinfo>
-					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element maxOccurs="unbounded" ref="ms:licenceInfo">
@@ -864,7 +858,7 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-			</xs:choice>
+			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
 	

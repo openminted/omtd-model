@@ -27,7 +27,13 @@
 				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" ref="ms:usageInfo"/>
-			<xs:element minOccurs="0" ref="ms:resourceDocumentationInfo"/>
+			<xs:element minOccurs="0" name="resourceDocumentations">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:resourceDocumentationInfo"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 			<xs:element minOccurs="0" ref="ms:resourceCreationInfo"/>
 			<xs:element name="distributionInfos">
 				<xs:complexType>
