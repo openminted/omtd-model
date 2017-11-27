@@ -30,7 +30,13 @@
 			<xs:element minOccurs="0" name="resourceDocumentations">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:resourceDocumentationInfo"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:resourceDocumentationInfo">
+				<xs:annotation>
+					<xs:appinfo>
+						<recommended>true</recommended>
+					</xs:appinfo>
+				</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>

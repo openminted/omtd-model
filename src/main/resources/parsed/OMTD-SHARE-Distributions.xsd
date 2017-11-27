@@ -27,13 +27,14 @@
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" ref="ms:dataFormatInfo"/>
-			<xs:element maxOccurs="1" minOccurs="0" ref="ms:characterEncoding">
+			<xs:element minOccurs="0" ref="ms:dataFormatInfo">
 				<xs:annotation>
 					<xs:appinfo>
 						<recommended>true</recommended>
 					</xs:appinfo>
 				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" ref="ms:characterEncoding">
 			</xs:element>
 			<xs:element minOccurs="0" name="sizes">
 				<xs:complexType>
@@ -65,7 +66,7 @@
 					<xs:annotation><xs:appinfo><jaxb:typesafeEnumClass name="componentDistributionFormEnum"/></xs:appinfo></xs:annotation><xs:restriction base="xs:string">
 						<xs:enumeration value="webService">
 							<xs:annotation>
-								<xs:documentation>A component accessible through remote invocation typically using some REST-style APIs or SOAP protocols.</xs:documentation>
+								<xs:documentation>An app/component accessible through remote invocation typically using some REST-style APIs or SOAP protocols.</xs:documentation>
 								<xs:appinfo>
 									<label>web service</label>
 								</xs:appinfo>
@@ -73,7 +74,7 @@
 						</xs:enumeration>
 						<xs:enumeration value="sourceCode">
 							<xs:annotation>
-								<xs:documentation>The distributable (delivery) form of a component containing the source code</xs:documentation>
+								<xs:documentation>The distributable (delivery) form of an app/component containing the source code</xs:documentation>
 								<xs:appinfo>
 									<label>source code</label>
 								</xs:appinfo>
@@ -81,7 +82,7 @@
 						</xs:enumeration>
 						<xs:enumeration value="executableCode">
 							<xs:annotation>
-								<xs:documentation>The distributable (delivery) form of a component with the executable code, i.e. that can be run on computer</xs:documentation>
+								<xs:documentation>The distributable (delivery) form of an app/component with the executable code, i.e. that can be run on computer</xs:documentation>
 								<xs:appinfo>
 									<label>executable code</label>
 								</xs:appinfo>
@@ -89,7 +90,7 @@
 						</xs:enumeration>
 						<xs:enumeration value="sourceAndExecutableCode">
 							<xs:annotation>
-								<xs:documentation>The distributable (delivery) form of a component that contains both the source and the executable codes</xs:documentation>
+								<xs:documentation>The distributable (delivery) form of an app/component that contains both the source and the executable codes</xs:documentation>
 								<xs:appinfo>
 									<label>source and executable code</label>
 								</xs:appinfo>
@@ -97,7 +98,7 @@
 						</xs:enumeration>
 						<xs:enumeration value="dockerImage">
 							<xs:annotation>
-								<xs:documentation>For components delivered as docker images</xs:documentation>
+								<xs:documentation>For apps/components delivered as docker images</xs:documentation>
 								<xs:appinfo>
 									<label>Docker image</label>
 								</xs:appinfo>
@@ -105,7 +106,7 @@
 						</xs:enumeration>
 						<xs:enumeration value="galaxyWorkflow">
 							<xs:annotation>
-								<xs:documentation>For forms of components that are delivered wrapped in the Galaxy workflow system</xs:documentation>
+								<xs:documentation>Workflows delivered wrapped in the Galaxy workflow system</xs:documentation>
 								<xs:appinfo>
 									<label>Galaxy workflow</label>
 								</xs:appinfo>
@@ -275,7 +276,7 @@
 			<xs:element ref="ms:distributionMedium"/>
 			<xs:element minOccurs="0" ref="ms:distributionLocation">
 				<xs:annotation>
-					<xs:documentation>Any location where the resource can be downloaded from; please, use if the resource is &quot;downloadable&quot; and you have not uploaded the resource in the repository</xs:documentation>
+					<xs:documentation>Any location where the resource can be downloaded from</xs:documentation>
 					<xs:appinfo>
 						<relation>one-to-many</relation>
 						<label>Distribution location</label>
@@ -609,7 +610,17 @@
 							<xs:annotation>
 								<xs:documentation>Value for &quot;licence&quot;; to be used for resources that are distributed with open access rights but for which the licence has not been identified or further specified (from trusted sources such as OpenAIRE and CORE)</xs:documentation>
 								<xs:appinfo>
-									<label>Under negotiation</label>
+									<label>Open access rights with unspecified licence</label>
+									<usage>show only for publications</usage>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="restrictedAccessUnspecified">
+							<xs:annotation>
+								<xs:documentation>Value for &quot;licence&quot;; to be used for resources that are distributed with restricted and ebargo access rights but for which the licence has not been identified or further specified (from trusted sources such as OpenAIRE and CORE)</xs:documentation>
+								<xs:appinfo>
+									<label>Restricted access rights with unspecified licence</label>
+									<usage>show only for publications</usage>
 								</xs:appinfo>
 							</xs:annotation>
 						</xs:enumeration>
@@ -621,7 +632,6 @@
 								</xs:appinfo>
 							</xs:annotation>
 						</xs:enumeration>
-						<xs:enumeration value="restrictedAccessUnspecified"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -876,7 +886,7 @@
 				<xs:maxLength value="30"/>
 				<xs:enumeration value="webExecutable">
 					<xs:annotation>
-						<xs:documentation>For web services</xs:documentation>
+						<xs:documentation>For resources accessed via a SPARQL query</xs:documentation>
 						<xs:appinfo>
 							<label>Web executable</label>
 						</xs:appinfo>
@@ -884,7 +894,7 @@
 				</xs:enumeration>
 				<xs:enumeration value="downloadable">
 					<xs:annotation>
-						<xs:documentation>For resources that can be downloaded, e.g. for documents that can be downloaded or software tools that can be locally downloaded and run</xs:documentation>
+						<xs:documentation>For resources that can be downloaded</xs:documentation>
 						<xs:appinfo>
 							<label>Downloadable</label>
 						</xs:appinfo>
@@ -892,7 +902,7 @@
 				</xs:enumeration>
 				<xs:enumeration value="accessibleThroughInterface">
 					<xs:annotation>
-						<xs:documentation>For resources that can accessed only via an interface, e.g. lexica or corpora through query interfaces</xs:documentation>
+						<xs:documentation>For resources that can accessed only via a dedicated interface</xs:documentation>
 						<xs:appinfo>
 							<label>Acessible through interface</label>
 						</xs:appinfo>
@@ -968,57 +978,5 @@
 			</xs:appinfo>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="fee">
-		<xs:annotation>
-			<xs:documentation>Specifies the costs that are required to access the resource, a fragment of the resource or to use a component</xs:documentation>
-			<xs:appinfo>
-				<relation>one-to-one</relation>
-				<label>Fee</label>
-			</xs:appinfo>
-		</xs:annotation>
-		<xs:simpleType>
-			<xs:restriction base="xs:string">
-				<xs:maxLength value="100"/>
-			</xs:restriction>
-		</xs:simpleType>
-	</xs:element>
-	<xs:element name="userType">
-		<xs:annotation>
-			<xs:documentation>The conditions imposed by the user type (for instance, use may be allowed only for academic users or the fee may vary depending on the user type)</xs:documentation>
-			<xs:appinfo>
-				<relation>one-to-many</relation>
-				<label>User type</label>
-			</xs:appinfo>
-		</xs:annotation>
-		<xs:simpleType>
-			<xs:annotation><xs:appinfo><jaxb:typesafeEnumClass name="userTypeEnum"/></xs:appinfo></xs:annotation><xs:restriction base="xs:string">
-				<xs:maxLength value="50"/>
-				<xs:enumeration value="academic">
-					<xs:annotation>
-						<xs:documentation>For academic institutions</xs:documentation>
-						<xs:appinfo>
-							<label>Academic</label>
-						</xs:appinfo>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="commercial">
-					<xs:annotation>
-						<xs:documentation>For commercial institutions</xs:documentation>
-						<xs:appinfo>
-							<label>Commercial</label>
-						</xs:appinfo>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="membersOfGroup">
-					<xs:annotation>
-						
-						<xs:documentation>For members of particular groups (e.g. META-SHARE, CLARIN, ELRA etc.)</xs:documentation>
-						<xs:appinfo>
-							<label>Members of group</label>
-						</xs:appinfo>
-					</xs:annotation>
-				</xs:enumeration>
-			</xs:restriction>
-		</xs:simpleType>
-	</xs:element>
+	
 </xs:schema>

@@ -55,7 +55,7 @@
 				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" ref="ms:usageInfo"/>
-			<xs:element name="application" type="xs:boolean">
+			<xs:element default="false" name="application" type="xs:boolean">
 				<xs:annotation>
 					<xs:documentation>Indicates whether the component can be used as an integrated end-user application</xs:documentation>
 					<xs:appinfo>
@@ -69,15 +69,25 @@
 					<xs:sequence>
 						<xs:element name="function" type="ms:operationType">
 							<xs:annotation>
-								<xs:documentation>Specifies the operation/function/task the component/application performs</xs:documentation>
+								<xs:documentation>Specifies the operation/function/task the application/component performs</xs:documentation>
 								<xs:appinfo>
 									<relation>one-to-many</relation>
-									<label>Type of operation</label>
-									<label-plural>Types of operation</label-plural>
+									<label>Function/Task</label>
+									<label-plural>Functions/Tasks</label-plural>
+									<usage>The values are taken from the controlled vocabularies XSD, which will be enriched with the ontology class &quot;operationType&quot; with two main subclasses: &quot;componentType&quot; will be used (i.e. displayed to users for selection) if application=&quot;false&quot; and &quot;applicationOperation&quot; which will be used if application=&quot;true&quot;</usage>
 								</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" name="functionOther" type="xs:string"/>
+						<xs:element minOccurs="0" name="functionOther" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>If none of the proposed values describes appropriately the function performed by your resource, please select the one you consider closest and add a value (preferably the id from another ontology) in the element functionOther. </xs:documentation>
+								<xs:appinfo>
+									<relation>one-to-many</relation>
+									<label>Function (user-added value)</label>
+									<usage/>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -96,6 +106,7 @@
 						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:parameterInfo">
 							<xs:annotation>
 								<xs:appinfo>
+									<recommended>true</recommended>
 								</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
@@ -107,6 +118,7 @@
 					<xs:documentation>Groups together information on the requirements set on the input resource of a component</xs:documentation>
 					<xs:appinfo>
 						<label>Information on input</label>
+						<recommended>true</recommended>
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
@@ -115,19 +127,52 @@
 					<xs:documentation>Groups together information on the output of a component</xs:documentation>
 					<xs:appinfo>
 						<label>Information on output</label>
+						<recommended>true</recommended>
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="previousAnnotationTypesPolicy">
+				<xs:annotation>
+					<xs:documentation>Specifies whether the component (annotator) keeps, modifies or drops previous annotation types</xs:documentation>
+					<xs:appinfo>
+						<label>Policy on previous annotation types</label>
+						<recommended>true</recommended>
+					</xs:appinfo>
+				</xs:annotation>
 				<xs:simpleType>
 					<xs:annotation><xs:appinfo><jaxb:typesafeEnumClass name="previousAnnotationTypesPolicyEnum"/></xs:appinfo></xs:annotation><xs:restriction base="xs:string">
-						<xs:enumeration value="keep"/>
-						<xs:enumeration value="modify"/>
-						<xs:enumeration value="drop"/>
+						<xs:enumeration value="keep">
+							<xs:annotation>
+								<xs:appinfo>
+									<label>Keep</label>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="modify">
+							<xs:annotation>
+								<xs:appinfo>
+									<label>Modify</label>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="drop">
+							<xs:annotation>
+								<xs:appinfo>
+									<label>Drop</label>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:enumeration>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
 			<xs:element minOccurs="0" name="componentDependencies">
+				<xs:annotation>
+					<xs:documentation>Groups together information on resources required for the operation of a component (e.g. typesystem, annotation resources etc.)</xs:documentation>
+					<xs:appinfo>
+						<label>Component dependencies</label>
+						<recommended>true</recommended>
+					</xs:appinfo>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element minOccurs="0" ref="ms:typesystem">
@@ -147,11 +192,24 @@
 						<xs:element minOccurs="0" name="annotationResources">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:annotationResource"/>
+									<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:annotationResource">
+										<xs:annotation>
+											<xs:appinfo>
+												<recommended>true</recommended>
+											</xs:appinfo>
+										</xs:annotation>
+									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element minOccurs="0" name="mlModel" type="ms:relatedResourceType"/>
+						<xs:element minOccurs="0" name="mlModel" type="ms:relatedResourceType">
+							<xs:annotation>
+								<xs:appinfo>
+									<label>Machine Learning model</label>
+									<recommended>true</recommended>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:element>
 						<xs:element minOccurs="0" name="softwareLibraries">
 							<xs:complexType>
 								<xs:sequence>
@@ -168,7 +226,6 @@
 			<xs:element ref="ms:componentCreationInfo">
 				<xs:annotation>
 					<xs:appinfo>
-						<recommended>true</recommended>
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
@@ -185,7 +242,6 @@
 						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:domain">
 							<xs:annotation>
 								<xs:appinfo>
-									<recommended>true</recommended>
 								</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
@@ -247,7 +303,13 @@
 			<xs:element minOccurs="0" name="relations">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:relationInfo"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:relationInfo">
+							<xs:annotation>
+								<xs:appinfo>
+									<recommended>true</recommended>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -293,7 +355,14 @@
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:annotation><xs:appinfo><jaxb:typesafeEnumClass name="parameterTypeEnum"/></xs:appinfo></xs:annotation><xs:restriction base="xs:string">
-						<xs:enumeration value="data"/>
+						<xs:enumeration value="data">
+							<xs:annotation>
+								<xs:documentation>Value for parameter type, indicating that the parameter takes data (e.g. document or corpus) as input</xs:documentation>
+								<xs:appinfo>
+									<label>data</label>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:enumeration>
 						<xs:enumeration value="string">
 							<xs:annotation>
 								<xs:documentation>Value for parameter type, indicating that the parameter takes free text as input</xs:documentation>
@@ -334,10 +403,38 @@
 								</xs:appinfo>
 							</xs:annotation>
 						</xs:enumeration>
-						<xs:enumeration value="url"/>
-						<xs:enumeration value="document"/>
-						<xs:enumeration value="corpora"/>
-						<xs:enumeration value="component"/>
+						<xs:enumeration value="url">
+							<xs:annotation>
+								<xs:documentation>Value for parameter type, indicating that the parameter takes a URL as input</xs:documentation>
+								<xs:appinfo>
+									<label>URL</label>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="document">
+							<xs:annotation>
+								<xs:documentation>Value for parameter type, indicating that the parameter takes a single document as input</xs:documentation>
+								<xs:appinfo>
+									<label>document</label>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="corpora">
+							<xs:annotation>
+								<xs:documentation>Value for parameter type, indicating that the parameter takes a corpus as input</xs:documentation>
+								<xs:appinfo>
+									<label>corpora</label>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="component">
+							<xs:annotation>
+								<xs:documentation>Value for parameter type, indicating that the parameter takes another component as input</xs:documentation>
+								<xs:appinfo>
+									<label>component</label>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:enumeration>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -363,13 +460,23 @@
 					<xs:appinfo>
 						<label>Parameter default value</label>
 						<label-plural>Parameter default values</label-plural>
+						<recommended>true</recommended>
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
 			<xs:element minOccurs="0" name="dataFormats">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:dataFormatInfo"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:dataFormatInfo">
+							<xs:annotation>
+								<xs:documentation>Used for specifying the data format for parameters</xs:documentation>
+								<xs:appinfo>
+									<label>Data format</label>
+									<label-plural>Data formats</label-plural>
+									<recommended>true</recommended>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -377,70 +484,64 @@
 	</xs:complexType>
 	<xs:complexType name="processingResourceInfoType">
 		<xs:annotation><xs:appinfo><jaxb:class name="ProcessingResourceInfo"/></xs:appinfo></xs:annotation><xs:sequence>
-			<xs:element name="processingResourceTypes">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" name="processingResourceType">
+			
+			<xs:element name="processingResourceType">
+				<xs:annotation>
+					<xs:documentation>The type of the resource that a component takes as input or produces as output</xs:documentation>
+					<xs:appinfo>
+						<relation>one-to-many</relation>
+						<label>Processing resource type</label>
+						<label-plural>Processing resource types</label-plural>
+						<default>document</default>
+						<change>true</change>
+					</xs:appinfo>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:annotation><xs:appinfo><jaxb:typesafeEnumClass name="processingResourceTypeEnum"/></xs:appinfo></xs:annotation><xs:restriction base="xs:string">
+						<xs:maxLength value="30"/>
+						<xs:enumeration value="corpus">
 							<xs:annotation>
-								<xs:documentation>The type of the resource that a component takes as input or produces as output</xs:documentation>
+								<xs:documentation>For components that take as input or produce as output a set of documents (corpus)</xs:documentation>
 								<xs:appinfo>
-									<relation>one-to-many</relation>
-									<label>Processing resource type</label>
-									<label-plural>Processing resource types</label-plural>
-									<default>document</default>
-									<change>true</change>
+									<label>Corpus</label>
 								</xs:appinfo>
 							</xs:annotation>
-							<xs:simpleType>
-								<xs:annotation><xs:appinfo><jaxb:typesafeEnumClass name="processingResourceTypeEnum"/></xs:appinfo></xs:annotation><xs:restriction base="xs:string">
-									<xs:maxLength value="30"/>
-									<xs:enumeration value="corpus">
-										<xs:annotation>
-											<xs:documentation>For components that take as input or produce as output a set of documents (corpus)</xs:documentation>
-											<xs:appinfo>
-												<label>Corpus</label>
-											</xs:appinfo>
-										</xs:annotation>
-									</xs:enumeration>
-									<xs:enumeration value="document">
-										<xs:annotation>
-											<xs:documentation>For components that take as input or produce as output a single document</xs:documentation>
-											<xs:appinfo>
-												<label>Document</label>
-											</xs:appinfo>
-										</xs:annotation>
-									</xs:enumeration>
-									<xs:enumeration value="userInputText">
-										<xs:annotation>
-											<xs:documentation>For components that take as input a text typed in by the user</xs:documentation>
-											<xs:appinfo>
-												<label>User input text</label>
-											</xs:appinfo>
-										</xs:annotation>
-									</xs:enumeration>
-									<xs:enumeration value="lexicalConceptualResource">
-										<xs:annotation>
-											<xs:documentation>For components that take as input a lexical or conceptual resource (e.g. lexicon, term list, ontology etc.) in order to perform operations on it or produce it as an output (e.g. a converter between two lexica or an extractor of lemmas from documents)</xs:documentation>
-											<xs:appinfo>
-												<label>Lexical/Conceptual resource</label>
-											</xs:appinfo>
-										</xs:annotation>
-									</xs:enumeration>
-									<xs:enumeration value="languageDescription">
-										<xs:annotation>
-											<xs:documentation>For components that take as input (in order to perform operations on it) or produce as output a language description (e.g. a grammar or a machine learning model); examples include converters between two grammars, a ML model trainer, etc.</xs:documentation>
-											<xs:appinfo>
-												<label>Language description</label>
-											</xs:appinfo>
-										</xs:annotation>
-									</xs:enumeration>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
+						</xs:enumeration>
+						<xs:enumeration value="document">
+							<xs:annotation>
+								<xs:documentation>For components that take as input or produce as output a single document</xs:documentation>
+								<xs:appinfo>
+									<label>Document</label>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="userInputText">
+							<xs:annotation>
+								<xs:documentation>For components that take as input a text typed in by the user</xs:documentation>
+								<xs:appinfo>
+									<label>User input text</label>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="lexicalConceptualResource">
+							<xs:annotation>
+								<xs:documentation>For components that take as input a lexical or conceptual resource (e.g. lexicon, term list, ontology etc.) in order to perform operations on it or produce it as an output (e.g. a converter between two lexica or an extractor of lemmas from documents)</xs:documentation>
+								<xs:appinfo>
+									<label>Lexical/Conceptual resource</label>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="languageDescription">
+							<xs:annotation>
+								<xs:documentation>For components that take as input (in order to perform operations on it) or produce as output a language description (e.g. a grammar or a machine learning model); examples include converters between two grammars, a ML model trainer, etc.</xs:documentation>
+								<xs:appinfo>
+									<label>Language description</label>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
 			</xs:element>
-			
 			<xs:element minOccurs="0" name="dataFormats">
 				<xs:complexType>
 					<xs:sequence>
@@ -449,7 +550,7 @@
 								<xs:documentation>Specifies the format that is used since often the mime type will not be sufficient for machine processing; NOTE: normally the format should be represented as a combination of the mimetype (e.g. application/xml) and some name and link to the documentation about the supplementary conventions used (e.g xces, alvisED etc.)</xs:documentation>
 								<xs:appinfo>
 									<xs:label>Data format</xs:label>
-									<usage-ugc>Automatically filled in with the dataFormat of the publications</usage-ugc>
+									<usage-ugc>Automatically filled in with the dataFormats of the publications</usage-ugc>
 								</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
@@ -485,7 +586,13 @@
 			<xs:element minOccurs="0" name="annotationTypes">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:annotationTypeInfo"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:annotationTypeInfo">
+							<xs:annotation>
+								<xs:appinfo>
+									<recommended>true</recommended>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -840,7 +947,13 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element minOccurs="0" ref="ms:TDMMethod"/>
+			<xs:element minOccurs="0" ref="ms:TDMMethod">
+				<xs:annotation>
+					<xs:appinfo>
+						<recommended>true</recommended>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="implementationLanguage">
 				<xs:annotation>
 					<xs:documentation>The programming languages needed for allowing user contributions, or for running the tools, in case no executables are available</xs:documentation>
