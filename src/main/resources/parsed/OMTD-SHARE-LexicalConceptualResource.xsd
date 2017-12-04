@@ -307,21 +307,6 @@
 				</xs:complexType>
 			</xs:element>
 			
-			<xs:element minOccurs="0" name="sizes">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" ref="ms:sizeInfo">
-							<xs:annotation>
-								<xs:appinfo>
-									<recommended>true</recommended>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element ref="ms:dataFormatInfo"/>
-			<xs:element minOccurs="0" ref="ms:characterEncoding"/>
 			<xs:element minOccurs="0" name="domains">
 				<xs:complexType>
 					<xs:sequence>

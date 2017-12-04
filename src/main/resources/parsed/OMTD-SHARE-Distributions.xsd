@@ -283,10 +283,28 @@
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element minOccurs="0" name="textFormats">
+						<xs:element name="sizes">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:textFormatInfo"/>
+						<xs:element maxOccurs="unbounded" ref="ms:sizeInfo">
+							<xs:annotation>
+								<xs:documentation>Groups information on the size of the resource or of resource parts</xs:documentation>
+								<xs:appinfo>
+									<relation>one-to-many</relation>
+									<inline-type>tabular</inline-type>
+									<label>Size</label>
+									<recommended>true</recommended>
+									<usage-ugc>To be created automatically by the system using [number] with [file]</usage-ugc>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="textFormats">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" ref="ms:textFormatInfo"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>

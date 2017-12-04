@@ -131,56 +131,7 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="sizes">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" ref="ms:sizeInfo">
-							<xs:annotation>
-								<xs:documentation>Groups information on the size of the resource or of resource parts</xs:documentation>
-								<xs:appinfo>
-									<relation>one-to-many</relation>
-									<inline-type>tabular</inline-type>
-									<label>Size</label>
-									<recommended>true</recommended>
-									<usage-ugc>To be created automatically by the system using [number] with [file]</usage-ugc>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="dataFormats">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" ref="ms:dataFormatInfo">
-							<xs:annotation>
-								<xs:documentation>Groups information on the text format(s) of a resource</xs:documentation>
-								<xs:appinfo>
-									<relation>one-to-many</relation>
-									<inline-type>tabular</inline-type>
-									<label>Text format</label>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" name="characterEncodings">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:characterEncodingInfo">
-							<xs:annotation>
-								<xs:documentation>Groups together information on character encoding of the resource</xs:documentation>
-								<xs:appinfo>
-									<relation>one-to-many</relation>
-									<inline-type>tabular</inline-type>
-									<label>Character encoding</label>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
+			
 			<xs:element minOccurs="0" name="textClassifications">
 				<xs:complexType>
 					<xs:sequence>
@@ -301,30 +252,7 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="sizes">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" ref="ms:sizeInfo">
-							<xs:annotation>
-								<xs:documentation>Groups information on the size of the resource or of resource parts</xs:documentation>
-								<xs:appinfo>
-									<relation>one-to-many</relation>
-									<inline-type>tabular</inline-type>
-									<label>Size</label>
-									<usage-ugc>To be created automatically by the system using [number] with [file]</usage-ugc>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="dataFormats">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" ref="ms:dataFormatInfo"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
+			
 			<xs:element name="annotations">
 				<xs:complexType>
 					<xs:sequence>
@@ -332,7 +260,7 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element minOccurs="0" ref="ms:characterEncoding"/>
+			
 			<xs:element minOccurs="0" name="textClassifications">
 				<xs:complexType>
 					<xs:sequence>
