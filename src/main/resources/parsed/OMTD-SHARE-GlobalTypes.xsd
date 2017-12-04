@@ -1111,29 +1111,38 @@
 				<relation>one-to-one</relation>
 			<jaxb:class name="ActorInfo"/></xs:appinfo>
 		</xs:annotation>
-		<xs:choice>
-			<xs:annotation><xs:appinfo><simplify:as-element-property/></xs:appinfo></xs:annotation><xs:element name="relatedPerson" type="ms:personInfoType">
+		<xs:sequence>
+			<xs:element name="actorType">
+				<xs:simpleType>
+					<xs:annotation><xs:appinfo><jaxb:typesafeEnumClass name="actorTypeEnum"/></xs:appinfo></xs:annotation><xs:restriction base="xs:string">
+						<xs:enumeration value="person"/>
+						<xs:enumeration value="group"/>
+						<xs:enumeration value="organization"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="0" name="relatedPerson" type="ms:personInfoType">
 				<xs:annotation>
 					<xs:appinfo>
 						<relation>one-to-one</relation>
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="relatedGroup" type="ms:groupInfoType">
+			<xs:element minOccurs="0" name="relatedGroup" type="ms:groupInfoType">
 				<xs:annotation>
 					<xs:appinfo>
 						<relation>one-to-one</relation>
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="relatedOrganization" type="ms:organizationInfoType">
+			<xs:element minOccurs="0" name="relatedOrganization" type="ms:organizationInfoType">
 				<xs:annotation>
 					<xs:appinfo>
 						<relation>one-to-one</relation>
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
-		</xs:choice>
+		</xs:sequence>
 	</xs:complexType>
 	
 	<xs:complexType name="groupInfoType">

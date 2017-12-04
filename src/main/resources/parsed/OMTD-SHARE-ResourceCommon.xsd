@@ -630,18 +630,13 @@
 		</xs:annotation>
 		<xs:sequence>
 			
-			<xs:element name="documentationDescription">
+			<xs:element name="documentationDescription" type="xs:string">
 				<xs:annotation>
 					<xs:documentation>A free text field used for any kind of documentation relating to a resoure; it can be a bibliographic record (preferrably in the form of a bibtex record), a URL for online help, for training material etc.</xs:documentation>
 					<xs:appinfo>
 						<label>Documentation description</label>
 					</xs:appinfo>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="500"/>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 			<xs:element name="documentationType">
 				<xs:simpleType>

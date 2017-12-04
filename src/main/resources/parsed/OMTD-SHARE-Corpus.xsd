@@ -19,28 +19,6 @@
 			<xs:element ref="ms:identificationInfo"/>
 			<xs:element ref="ms:versionInfo"/>
 			<xs:element maxOccurs="1" ref="ms:contactInfo"/>
-			<xs:element minOccurs="0" name="validationInfos">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:validationInfo"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" ref="ms:usageInfo"/>
-			<xs:element minOccurs="0" name="resourceDocumentations">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:resourceDocumentationInfo">
-							<xs:annotation>
-								<xs:appinfo>
-									<recommended>true</recommended>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" ref="ms:resourceCreationInfo"/>
 			<xs:element name="distributionInfos">
 				<xs:complexType>
 					<xs:sequence>
@@ -55,6 +33,34 @@
 					</xs:appinfo>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="resourceDocumentations">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:resourceDocumentationInfo">
+							<xs:annotation>
+								<xs:appinfo>
+									<recommended>true</recommended>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" ref="ms:resourceCreationInfo">
+				<xs:annotation>
+					<xs:appinfo>
+						<recommended>true</recommended>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="validationInfos">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:validationInfo"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" ref="ms:usageInfo"/>
 			<xs:element minOccurs="0" name="relations">
 				<xs:complexType>
 					<xs:sequence>
@@ -69,6 +75,12 @@
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="corpusSubtypeSpecificInfo">
+				<xs:annotation>
+					<xs:documentation>Groups together all information related to raw corpora</xs:documentation>
+					<xs:appinfo>
+						<xs:usage>The user must select at the beginning of the process whether they wish to upload a raw or annotated corpus</xs:usage>
+					</xs:appinfo>
+				</xs:annotation>
 				<xs:complexType>
 					<xs:choice>
 						<xs:annotation><xs:appinfo><simplify:as-element-property/></xs:appinfo></xs:annotation><xs:element minOccurs="1" ref="ms:rawCorpusInfo"/>
@@ -137,14 +149,13 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element minOccurs="0" name="dataFormats">
+			<xs:element name="dataFormats">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:dataFormatInfo">
+						<xs:element maxOccurs="unbounded" ref="ms:dataFormatInfo">
 							<xs:annotation>
 								<xs:documentation>Groups information on the text format(s) of a resource</xs:documentation>
 								<xs:appinfo>
-									<recommended>true</recommended>
 									<relation>one-to-many</relation>
 									<inline-type>tabular</inline-type>
 									<label>Text format</label>
@@ -300,7 +311,6 @@
 									<relation>one-to-many</relation>
 									<inline-type>tabular</inline-type>
 									<label>Size</label>
-									<recommended>true</recommended>
 									<usage-ugc>To be created automatically by the system using [number] with [file]</usage-ugc>
 								</xs:appinfo>
 							</xs:annotation>
@@ -308,16 +318,10 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element minOccurs="0" name="dataFormats">
+			<xs:element name="dataFormats">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:dataFormatInfo">
-							<xs:annotation>
-								<xs:appinfo>
-									<recommended>true</recommended>
-								</xs:appinfo>
-							</xs:annotation>
-						</xs:element>
+						<xs:element maxOccurs="unbounded" ref="ms:dataFormatInfo"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -369,7 +373,6 @@
 							<xs:annotation>
 								<xs:documentation>Groups together information on time classification of the resource</xs:documentation>
 								<xs:appinfo>
-									<recommended>true</recommended>
 									<relation>one-to-many</relation>
 									<inline-type>tabular</inline-type>
 									<label>Time coverage</label>
@@ -386,7 +389,6 @@
 							<xs:annotation>
 								<xs:documentation>Groups information on geographic classification of the resource</xs:documentation>
 								<xs:appinfo>
-									<recommended>true</recommended>
 									<relation>one-to-many</relation>
 									<inline-type>tabular</inline-type>
 									<label>Geographic coverage</label>

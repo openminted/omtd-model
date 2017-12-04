@@ -17,8 +17,36 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="ms:identificationInfo"/>
+			<xs:element ref="ms:versionInfo"/>
 			<xs:element maxOccurs="1" ref="ms:contactInfo"/>
-			<xs:element maxOccurs="1" ref="ms:versionInfo"/>
+			<xs:element name="distributionInfos">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" ref="ms:datasetDistributionInfo"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element ref="ms:rightsInfo"/>
+			<xs:element minOccurs="0" name="resourceDocumentations">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:resourceDocumentationInfo">
+							<xs:annotation>
+								<xs:appinfo>
+									<recommended>true</recommended>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0" ref="ms:resourceCreationInfo">
+				<xs:annotation>
+					<xs:appinfo>
+						<recommended>true</recommended>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
 			<xs:element minOccurs="0" name="validationInfos">
 				<xs:complexType>
 					<xs:sequence>
@@ -27,27 +55,6 @@
 				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" ref="ms:usageInfo"/>
-			<xs:element minOccurs="0" name="resourceDocumentations">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:resourceDocumentationInfo">
-				<xs:annotation>
-					<xs:appinfo>
-						<recommended>true</recommended>
-					</xs:appinfo>
-				</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element minOccurs="0" ref="ms:resourceCreationInfo"/>
-			<xs:element name="distributionInfos">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element maxOccurs="unbounded" ref="ms:datasetDistributionInfo"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
 			<xs:element name="languageDescriptionType">
 				<xs:annotation>
 					<xs:documentation>The type of the language description</xs:documentation>
@@ -101,6 +108,7 @@
 								<xs:documentation>variant name used for the model</xs:documentation>
 								<xs:appinfo>
 									<xs:label>Variant name</xs:label>
+									<recommended>true</recommended>
 								</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
@@ -111,15 +119,46 @@
 								</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
-						<xs:element minOccurs="0" ref="ms:annotationSchema"/>
-						<xs:element minOccurs="0" ref="ms:annotationResource"/>
-						<xs:element minOccurs="0" name="tagset" type="ms:relatedResourceType"/>
-						<xs:element minOccurs="0" ref="ms:TDMMethod"/>
+						<xs:element minOccurs="0" ref="ms:annotationSchema">
+							<xs:annotation>
+								<xs:appinfo>
+									<recommended>true</recommended>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="annotationResources">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:annotationResource">
+										<xs:annotation>
+											<xs:appinfo>
+												<recommended>true</recommended>
+											</xs:appinfo>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element minOccurs="0" name="tagsets">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element maxOccurs="unbounded" minOccurs="0" name="tagset" type="ms:relatedResourceType"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element minOccurs="0" ref="ms:TDMMethod">
+							<xs:annotation>
+								<xs:appinfo>
+									<recommended>true</recommended>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:element>
 						<xs:element minOccurs="0" name="algorithm" type="xs:string">
 							<xs:annotation>
 								<xs:documentation>Training algorithm used for the model (e.g. maximum entropy, svm etc.)</xs:documentation>
 								<xs:appinfo>
 									<xs:label>Algorithm</xs:label>
+									<recommended>true</recommended>
 								</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
@@ -136,6 +175,7 @@
 								<xs:documentation>Detailed description of the training corpus (e.g. size, number of features etc.)</xs:documentation>
 								<xs:appinfo>
 									<xs:label>Training corpus details</xs:label>
+									<recommended>true</recommended>
 								</xs:appinfo>
 							</xs:annotation>
 						</xs:element>
@@ -158,21 +198,7 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="languageDescriptionMediaType">
-				<xs:annotation>
-					<xs:documentation>Groups information on the media type-specific components for language descriptions</xs:documentation>
-					<xs:appinfo>
-						<relation>one-to-one</relation>
-						<label>Media type component of language description</label>
-					</xs:appinfo>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element ref="ms:languageDescriptionTextInfo"/>
-						
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
+			<xs:element ref="ms:languageDescriptionTextInfo"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="languageDescriptionEncodingInfoType">
@@ -417,12 +443,16 @@
 			<xs:element minOccurs="0" name="metalanguages">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:metalanguageInfo"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:metalanguageInfo">
+							<xs:annotation>
+								<xs:appinfo>
+									<recommended>true</recommended>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element ref="ms:dataFormatInfo"/>
-			<xs:element minOccurs="0" ref="ms:characterEncoding"/>
 			<xs:element minOccurs="0" name="sizes">
 				<xs:complexType>
 					<xs:sequence>
@@ -436,10 +466,18 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+			<xs:element ref="ms:dataFormatInfo"/>
+			<xs:element minOccurs="0" ref="ms:characterEncoding"/>
 			<xs:element minOccurs="0" name="domains">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:domain"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ms:domain">
+							<xs:annotation>
+								<xs:appinfo>
+									<recommended>true</recommended>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
