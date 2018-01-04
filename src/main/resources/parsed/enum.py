@@ -26,6 +26,7 @@ class Rename:
 			new_name = re.sub(r'\s',"",name)
 			new_name = re.sub(r'/',"_",name)
 			new_name = re.sub(r'[^\w\d_]','_', new_name)
+			new_name = re.sub(r'([a-z])([A-Z])',r"\1_\2",new_name)
 			if re.match('\d.*',new_name) is not None :
 				new_name = 'V' + new_name
 		else:

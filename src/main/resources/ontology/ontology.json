@@ -1,0 +1,2072 @@
+[
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/EntityMentionLabelling", 
+        "name": "Entity Mention labelling"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/AnnotationOfTextualEntailment", 
+        "name": "Annotation of Textual Entailment"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/CoReferenceResolution", 
+        "name": "Co-reference resolution"
+    }, 
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/BelowPosTagging", 
+                                "name": "Below PoS Tagging"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/PosTagging", 
+                                "name": "PoS Tagging"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/MorphosyntacticTagging", 
+                        "name": "Morphosyntactic tagging"
+                    }, 
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/ParagraphSplitting", 
+                                "name": "Paragraph splitting"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Tokenization", 
+                                "name": "Tokenization"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/AnnotationOfDocumentStructure", 
+                                "name": "Annotation of document structure"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/SentenceSplitting", 
+                                "name": "Sentence splitting"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/StructuralAnnotation", 
+                        "name": "Structural annotation"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Lemmatization", 
+                        "name": "Lemmatization"
+                    }, 
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/AnnotationOfCompoundingFeatures", 
+                                "name": "Annotation of compounds"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/BelowPosTagging", 
+                                "name": "Below PoS Tagging"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/AnnotationOfMultiWordUnits", 
+                                "name": "Annotation of multi-word units"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/AnnotationOfDerivationalFeatures", 
+                                "name": "Annotation of derivational features"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/WordSegmentation", 
+                                "name": "Word segmentation"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/MorphologicalAnnotation", 
+                        "name": "Morphological annotation"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Stemming", 
+                        "name": "Stemming"
+                    }, 
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Argumentation", 
+                                "name": "Argumentation"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/DiscourseAnnotation", 
+                        "name": "Discourse annotation"
+                    }, 
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/DependencyParsing", 
+                                "name": "Dependency parsing"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/FrameSemanticParsing", 
+                                "name": "Frame-semantic parsing"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/ConstituencyParsing", 
+                                "name": "Constituency parsing"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Chunking", 
+                                "name": "Chunking"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/Parsing", 
+                        "name": "Parsing"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/TextAnnotation", 
+                "name": "Text annotation"
+            }
+        ], 
+        "id": "http://w3id.org/meta-share/omtd-share/Annotation", 
+        "name": "Annotation"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/NamedEntitiesLabelling", 
+        "name": "Named Entities Labelling"
+    }, 
+    {
+        "children": [
+            {
+                "id": "http://w3id.org/meta-share/omtd-share/LexiconViewer", 
+                "name": "Lexicon viewer"
+            }, 
+            {
+                "id": "http://w3id.org/meta-share/omtd-share/CorpusViewer", 
+                "name": "Corpus viewer"
+            }
+        ], 
+        "id": "http://w3id.org/meta-share/omtd-share/Viewer", 
+        "name": "Viewer"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/SemanticRelationLabelling", 
+        "name": "Semantic Relation Labelling"
+    }, 
+    {
+        "children": [
+            {
+                "id": "http://w3id.org/meta-share/omtd-share/GazeteerBasedMatcher", 
+                "name": "Gazeteer based matcher"
+            }
+        ], 
+        "id": "http://w3id.org/meta-share/omtd-share/Matcher", 
+        "name": "Matcher"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/EmotionLabelling", 
+        "name": "Emotion labelling"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/TrainingOfLanguageModels", 
+        "name": "Training of language models"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/DependencyConversion", 
+        "name": "Dependency conversion"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/FaceRecognition", 
+        "name": "Face Recognition"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/GazeteerBasedMatching", 
+        "name": "Gazeteer based matching"
+    }, 
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/KeaCorpus", 
+                        "name": "KEA corpus"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Reuters21578Txt", 
+                        "name": "Reuters21578 Txt"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Reuters21578Sgml", 
+                        "name": "Reuters21578 SGML"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/AclAnthologyCorpusFormat", 
+                        "name": "ACL Anthology Corpus format"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Tuepp", 
+                        "name": "Tuepp"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Tcf", 
+                        "name": "TCF"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Web1t", 
+                        "name": "Web1T"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/AimedCorpusFormat", 
+                        "name": "AIMED corpus format"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Imscwb", 
+                        "name": "imsCwb"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/TigerXml", 
+                        "name": "Tiger XML"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/BncFormat", 
+                        "name": "BNC format"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Nif", 
+                        "name": "NIF"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/CorpusFormat", 
+                "name": "Corpus format"
+            }, 
+            {
+                "children": [
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Rdf_xml", 
+                        "name": "RDF/XML"
+                    }, 
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Owl_xml", 
+                                "name": "OWL/XML"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/Owl", 
+                        "name": "OWL"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Turtle", 
+                        "name": "Turtle"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Obo", 
+                        "name": "OBO"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Nif", 
+                        "name": "NIF"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/RdfFormats", 
+                "name": "RDF formats"
+            }, 
+            {
+                "children": [
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/MsAccessDatabase", 
+                        "name": "MS-Access database"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Jdbc", 
+                        "name": "JDBC"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/DatabaseFormat", 
+                "name": "Database format"
+            }, 
+            {
+                "children": [
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/MediaWikiMarkup", 
+                        "name": "Media Wiki markup"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/WikiFormats", 
+                "name": "Wiki formats"
+            }, 
+            {
+                "children": [
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/FastInfoset", 
+                        "name": "Fast Infoset"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Pdf", 
+                        "name": "PDF"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/BinaryFormat", 
+                "name": "Binary format"
+            }, 
+            {
+                "children": [
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Csv", 
+                        "name": "CSV"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Tsv", 
+                        "name": "TSV"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/MsExcel", 
+                        "name": "MS-Excel"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Imscwb", 
+                        "name": "imsCwb"
+                    }, 
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Conll2006", 
+                                "name": "CoNLL-2006"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Conll2002", 
+                                "name": "CoNLL-2002"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Conll2003", 
+                                "name": "CoNLL-2003"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Conll2000", 
+                                "name": "CoNLL-2000"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Conll2008", 
+                                "name": "CoNLL-2008"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Conll2009", 
+                                "name": "CoNLL-2009"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/ConllU", 
+                                "name": "CoNLL-U"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Conll2012", 
+                                "name": "CoNLL-2012"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/ConllFormat", 
+                        "name": "CoNLL format"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/TabularFormat", 
+                "name": "Tabular format"
+            }, 
+            {
+                "children": [
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Json_ld", 
+                        "name": "JSON/LD"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/LinkedDataFormat", 
+                "name": "Linked data format"
+            }, 
+            {
+                "children": [
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Json_ld", 
+                        "name": "JSON/LD"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Json_genia", 
+                        "name": "JSON/Genia"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Kaf", 
+                        "name": "KAF"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Datasift_json", 
+                        "name": "DataSift/JSON"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Cadixe_json", 
+                        "name": "Cadixe/JSON"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Gate_json", 
+                        "name": "GATE/JSON"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/WebAnnotationFormat", 
+                        "name": "Web annotation format"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Uima_json", 
+                        "name": "UIMA/JSON"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/Json", 
+                "name": "JSON"
+            }, 
+            {
+                "children": [
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/WikipediaDiscussion", 
+                        "name": "Wikipedia discussion"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/WikipediaArticleInfo", 
+                        "name": "Wikipedia article info"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/WikipediaPage", 
+                        "name": "Wikipedia page"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/WikipediaQuery", 
+                        "name": "Wikipedia query"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/WikipediaRevisionPair", 
+                        "name": "Wikipedia revision pair"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/WikipediaTemplateFilteredArticle", 
+                        "name": "Wikipedia template filtered article"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/WikipediaLink", 
+                        "name": "Wikipedia link"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/WikipediaRevision", 
+                        "name": "Wikipedia revision"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/WikipediaArticle", 
+                        "name": "Wikipedia article"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Blikiwikipedia", 
+                        "name": "blikiWikipedia"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/WikipediaFormat", 
+                "name": "Wikipedia format"
+            }, 
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Owl_xml", 
+                                "name": "OWL/XML"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/Owl", 
+                        "name": "OWL"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/Solr", 
+                "name": "Solr"
+            }, 
+            {
+                "children": [
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Rdf_xml", 
+                        "name": "RDF/XML"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Pml", 
+                        "name": "PML"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Tei", 
+                        "name": "TEI"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Xpath", 
+                        "name": "XPath"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Owl_xml", 
+                        "name": "OWL/XML"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Tmx", 
+                        "name": "TMX"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Tuepp", 
+                        "name": "Tuepp"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Xhtml", 
+                        "name": "XHTML"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/XmlBioc", 
+                        "name": "XML BioC"
+                    }, 
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/XcesIlspVariant", 
+                                "name": "XCES ILSP variant"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/Xces", 
+                        "name": "XCES"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Emma", 
+                        "name": "EMMA"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Tcf", 
+                        "name": "TCF"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Pls", 
+                        "name": "PLS"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Folia", 
+                        "name": "FoLiA"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/InlineXml", 
+                        "name": "Inline XML"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Xmi", 
+                        "name": "XMI"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/TigerXml", 
+                        "name": "Tiger XML"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/AlvisEnrichedDocumentFormat", 
+                        "name": "ALVIS Enriched Document format"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/BncFormat", 
+                        "name": "BNC format"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/GateXml", 
+                        "name": "GATE XML"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/Xml", 
+                "name": "XML"
+            }, 
+            {
+                "children": [
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Rtf", 
+                        "name": "RTF"
+                    }, 
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Html5Microdata", 
+                                "name": "HTML5 Microdata"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/Html", 
+                        "name": "HTML"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Tex", 
+                        "name": "TEX"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Json_ld", 
+                        "name": "JSON/LD"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Pubmed", 
+                        "name": "PubMed"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Text_plain", 
+                        "name": "Plain Text"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Sgml", 
+                        "name": "SGML"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Xhtml", 
+                        "name": "XHTML"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/MsExcel", 
+                        "name": "MS-Excel"
+                    }, 
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Bionlp", 
+                                "name": "BioNLP"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Json_genia", 
+                                "name": "JSON/Genia"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/BionlpSt2013A1_a2", 
+                                "name": "BioNLP-ST 2013 a1/a2"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/BionlpFormats", 
+                        "name": "BioNLP formats"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Pls", 
+                        "name": "PLS"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Postscript", 
+                        "name": "postscript"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/MsWord", 
+                        "name": "MS-Word"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Xmi", 
+                        "name": "XMI"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Pdf", 
+                        "name": "PDF"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Latex", 
+                        "name": "LATEX"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Cochrane", 
+                        "name": "Cochrane"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/DocumentFormat", 
+                "name": "Document format"
+            }, 
+            {
+                "children": [
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/NegraExport", 
+                        "name": "NeGra export"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Pml", 
+                        "name": "PML"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Html5Microdata", 
+                        "name": "HTML5 Microdata"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Tei", 
+                        "name": "TEI"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/MalletLdaTopicProportionsSorted", 
+                        "name": "Mallet LDA Topic Proportions Sorted"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Brat", 
+                        "name": "BRAT"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Tmx", 
+                        "name": "TMX"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Tuepp", 
+                        "name": "Tuepp"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/MalletLdaTopicProportions", 
+                        "name": "Mallet LDA Topic Proportions"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/MsExcel", 
+                        "name": "MS-Excel"
+                    }, 
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/XcesIlspVariant", 
+                                "name": "XCES ILSP variant"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/Xces", 
+                        "name": "XCES"
+                    }, 
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/PtbCombined", 
+                                "name": "PTB-combined"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/PtbChunked", 
+                                "name": "PTB-chunked"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/Ptb", 
+                        "name": "PTB"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/I2b2", 
+                        "name": "I2B2"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Tgrep2", 
+                        "name": "TGrep2"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Kaf", 
+                        "name": "KAF"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Graf", 
+                        "name": "GrAF"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Emma", 
+                        "name": "EMMA"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Tcf", 
+                        "name": "TCF"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Folia", 
+                        "name": "FoLiA"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/DkproTokenized", 
+                        "name": "DKPro tokenized"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Lll", 
+                        "name": "LLL"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/InlineXml", 
+                        "name": "Inline XML"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Cadixe_json", 
+                        "name": "Cadixe/JSON"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Naf", 
+                        "name": "NAF"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/FactoredTagLemFormat", 
+                        "name": "Factored tag lem format"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/TigerXml", 
+                        "name": "Tiger XML"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/AlvisEnrichedDocumentFormat", 
+                        "name": "ALVIS Enriched Document format"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Chat", 
+                        "name": "CHAT"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Diaml", 
+                        "name": "DIAML"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/WebAnnotationFormat", 
+                        "name": "Web annotation format"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Nif", 
+                        "name": "NIF"
+                    }, 
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Conll2006", 
+                                "name": "CoNLL-2006"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Conll2002", 
+                                "name": "CoNLL-2002"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Conll2003", 
+                                "name": "CoNLL-2003"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Conll2000", 
+                                "name": "CoNLL-2000"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Conll2008", 
+                                "name": "CoNLL-2008"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Conll2009", 
+                                "name": "CoNLL-2009"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/ConllU", 
+                                "name": "CoNLL-U"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Conll2012", 
+                                "name": "CoNLL-2012"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/ConllFormat", 
+                        "name": "CoNLL format"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/AnnotationFormat", 
+                "name": "Annotation format"
+            }, 
+            {
+                "children": [
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/FastInfoset", 
+                        "name": "Fast Infoset"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Datasift_json", 
+                        "name": "DataSift/JSON"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Gate_json", 
+                        "name": "GATE/JSON"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/GateXml", 
+                        "name": "GATE XML"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/GateFormat", 
+                "name": "GATE format"
+            }, 
+            {
+                "children": [
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/SerializedCas", 
+                        "name": "Serialized CAS"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/BinaryCas", 
+                        "name": "Binary CAS"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Uima_json", 
+                        "name": "UIMA/JSON"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/UimaCasFormat", 
+                "name": "UIMA CAS format"
+            }
+        ], 
+        "id": "http://w3id.org/meta-share/omtd-share/DataFormat", 
+        "name": "Data format"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/Validator", 
+        "name": "Validator"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/Mimetype", 
+        "name": "Mimetype"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/TrainerOfMachineLearningModels", 
+        "name": "Trainer of Machine Learning models"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/Evaluator", 
+        "name": "Evaluator"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/DataSplitter", 
+        "name": "Data splitter"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/DataMerger", 
+        "name": "Data merger"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/CoReferenceAnnotation", 
+        "name": "Co-reference annotation"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/FacialExpressions", 
+        "name": "Facial Expressions"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/Editor", 
+        "name": "Editor"
+    }, 
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/TextCategorization", 
+                                "name": "Text categorization"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/SentimentAnalysis", 
+                                "name": "Sentiment analysis"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/RecognizingTextualEntailment", 
+                                "name": "Recognizing Textual Entailment"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/QuestionAnswering", 
+                                "name": "Question Answering"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/TopicDetection", 
+                                "name": "Topic detection"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/KnowledgeDiscovery", 
+                        "name": "Knowledge discovery"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Prediction", 
+                        "name": "Prediction"
+                    }, 
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/SemanticSearch", 
+                                "name": "Semantic search"
+                            }, 
+                            {
+                                "children": [
+                                    {
+                                        "id": "http://w3id.org/meta-share/omtd-share/InformationFilteringByRecommenderSystems", 
+                                        "name": "Information filtering by recommender systems"
+                                    }
+                                ], 
+                                "id": "http://w3id.org/meta-share/omtd-share/InformationFiltering", 
+                                "name": "Information filtering"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/ExploratorySearch", 
+                                "name": "Exploratory search"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/InformationRetrieval", 
+                        "name": "Information retrieval"
+                    }, 
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/OntologyAcquisition", 
+                                "name": "Ontology acquisition"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/OntologyEnhancement", 
+                                "name": "Ontology enhancement"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/KnowledgeAcquisition", 
+                        "name": "Knowledge acquisition"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/KnowledgeRepresentation", 
+                        "name": "Knowledge Representation"
+                    }, 
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/TextCategorization", 
+                                "name": "Text categorization"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/EmotionDetection", 
+                                "name": "Emotion detection"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/SentimentAnalysis", 
+                                "name": "Sentiment analysis"
+                            }, 
+                            {
+                                "children": [
+                                    {
+                                        "id": "http://w3id.org/meta-share/omtd-share/ExtractionOfFundingInformation", 
+                                        "name": "Extraction of funding information"
+                                    }
+                                ], 
+                                "id": "http://w3id.org/meta-share/omtd-share/ExtractionOfDomainSpecificInformation", 
+                                "name": "Extraction of domain-specific information"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/RelationExtraction", 
+                                "name": "Relation extraction"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/ComputationalArgumentation", 
+                                "name": "Computational argumentation"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/KeywordExtraction", 
+                                "name": "Keyword extraction"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/ContradictionDetection", 
+                                "name": "Contradiction detection"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/PersuasiveExpressionMining", 
+                                "name": "Persuasive expression mining"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/RecognizingTextualEntailment", 
+                                "name": "Recognizing Textual Entailment"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/NamedEntityRecognition", 
+                                "name": "Named Entity Recognition"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/EntityMentionRecognition", 
+                                "name": "Entity mention recognition"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/QuestionAnswering", 
+                                "name": "Question Answering"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/TermExtraction", 
+                                "name": "Term extraction"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/TemporalExpressionRecognition", 
+                                "name": "Temporal expression recognition"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/EventDetection", 
+                                "name": "Event detection"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/TopicDetection", 
+                                "name": "Topic detection"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/InformationExtraction", 
+                        "name": "Information extraction"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/TextAndDataMining", 
+                "name": "Text and Data Mining"
+            }, 
+            {
+                "id": "http://w3id.org/meta-share/omtd-share/Summarization", 
+                "name": "Summarization"
+            }, 
+            {
+                "id": "http://w3id.org/meta-share/omtd-share/TextAndDataAnalytics", 
+                "name": "Text and Data Analytics"
+            }
+        ], 
+        "id": "http://w3id.org/meta-share/omtd-share/Operation", 
+        "name": "Operation"
+    }, 
+    {
+        "children": [
+            {
+                "id": "http://w3id.org/meta-share/omtd-share/Crawler", 
+                "name": "Crawler"
+            }
+        ], 
+        "id": "http://w3id.org/meta-share/omtd-share/DataCollector", 
+        "name": "Data collector"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/CertaintyLevelLabelling", 
+        "name": "Certainty Level Labelling"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/ExpressionRecognition", 
+        "name": "Expression Recognition"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/FaceVerification", 
+        "name": "Face Verification"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/Debugger", 
+        "name": "Debugger"
+    }, 
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/InstanceBasedLearning", 
+                        "name": "Instance-based Learning"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/ArtificialNeuralNetwork", 
+                        "name": "Artificial Neural Network"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/EnsembleMethod", 
+                        "name": "Ensemble Method"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/KernelMethod", 
+                        "name": "Kernel Method"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/DimensionalityReduction", 
+                        "name": "Dimensionality Reduction"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/RegressionAnalysis", 
+                        "name": "Regression Analysis"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/DecisionTrees", 
+                        "name": "Decision Trees"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Bayesian", 
+                        "name": "Bayesian"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Regularisation", 
+                        "name": "Regularisation"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/ClusteringMethod", 
+                        "name": "Clustering Method"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/AssociationRuleLearning", 
+                        "name": "Association Rule Learning"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/DeepLearning", 
+                        "name": "Deep Learning"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/MachineAndStatisticalLearningMethod", 
+                "name": "Machine and Statistical Learning Method"
+            }, 
+            {
+                "id": "http://w3id.org/meta-share/omtd-share/StatisticalLearningMethod", 
+                "name": "Statistical Learning Method"
+            }, 
+            {
+                "id": "http://w3id.org/meta-share/omtd-share/RuleBasedMethod", 
+                "name": "Rule-based Method"
+            }, 
+            {
+                "id": "http://w3id.org/meta-share/omtd-share/Crowdsourcing", 
+                "name": "Crowdsourcing"
+            }, 
+            {
+                "id": "http://w3id.org/meta-share/omtd-share/MachineLearningMethod", 
+                "name": "Machine Learning Method"
+            }
+        ], 
+        "id": "http://w3id.org/meta-share/omtd-share/TdmMethod", 
+        "name": "TDM Method"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/MachineLearningPredictor", 
+        "name": "Machine Learning predictor"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/SoftwareDevelopmentEnvironment", 
+        "name": "Software development environment"
+    }, 
+    {
+        "children": [
+            {
+                "id": "http://w3id.org/meta-share/omtd-share/DependencyConverter", 
+                "name": "Dependency converter"
+            }
+        ], 
+        "id": "http://w3id.org/meta-share/omtd-share/Converter", 
+        "name": "Converter"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/DiscourseAnalysis", 
+        "name": "Discourse analysis"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/PolarityLabelling", 
+        "name": "Polarity Labelling"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/SemanticRoleLabelling", 
+        "name": "Semantic Role Labelling"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/TemporalExpressions", 
+        "name": "Temporal Expressions Labelling"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/ScriptBasedAnalyser", 
+        "name": "Script-based analyser"
+    }, 
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/DocumentClassifier", 
+                        "name": "Document classifier"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/ContradictionDetector", 
+                        "name": "Contradiction detector"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/EventExtractor", 
+                        "name": "Event extractor"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/LexiconExtractorFromLexica", 
+                        "name": "Lexicon extractor from lexica"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/LanguageIdentifier", 
+                        "name": "Language identifier"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/VariablesDectector", 
+                        "name": "Variables dectector"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/InformationExtractor", 
+                        "name": "Information extractor"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/TermExtractor", 
+                        "name": "Term extractor"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/PersuasiveExpressionMiner", 
+                        "name": "Persuasive expression miner"
+                    }, 
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/WordSenseDisambiguator", 
+                                "name": "Word sense disambiguator"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/Disambiguator", 
+                        "name": "Disambiguator"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/KeywordExtractor", 
+                        "name": "Keyword extractor"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/SentimentAnalyzer", 
+                        "name": "Sentiment analyzer"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/TopicExtractor", 
+                        "name": "Topic extractor"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/EmotionRecognizer", 
+                        "name": "Emotion recognizer"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/LexiconExtractorFromCorpora", 
+                        "name": "Lexicon extractor from corpora"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/Analyzer", 
+                "name": "Analyzer"
+            }, 
+            {
+                "children": [
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Writer", 
+                        "name": "Writer"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Reader", 
+                        "name": "Reader"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/AccessComponent", 
+                "name": "Access Component"
+            }, 
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Summarizer", 
+                                "name": "Summarizer"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Simplifier", 
+                                "name": "Simplifier"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/Generator", 
+                        "name": "Generator"
+                    }, 
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/NamedEntitityRecognizer", 
+                                "name": "Named entitity recognizer"
+                            }, 
+                            {
+                                "children": [
+                                    {
+                                        "id": "http://w3id.org/meta-share/omtd-share/DependencyParser", 
+                                        "name": "Dependency parser"
+                                    }, 
+                                    {
+                                        "id": "http://w3id.org/meta-share/omtd-share/ConstituencyParser", 
+                                        "name": "Constituency parser"
+                                    }
+                                ], 
+                                "id": "http://w3id.org/meta-share/omtd-share/Parser", 
+                                "name": "Parser"
+                            }, 
+                            {
+                                "children": [
+                                    {
+                                        "id": "http://w3id.org/meta-share/omtd-share/SentenceSplitter", 
+                                        "name": "Sentence splitter"
+                                    }, 
+                                    {
+                                        "id": "http://w3id.org/meta-share/omtd-share/Tokenizer", 
+                                        "name": "Tokenizer"
+                                    }
+                                ], 
+                                "id": "http://w3id.org/meta-share/omtd-share/Segmenter", 
+                                "name": "Segmenter"
+                            }, 
+                            {
+                                "children": [
+                                    {
+                                        "id": "http://w3id.org/meta-share/omtd-share/PartOfSpeechTagger", 
+                                        "name": "Part of speech tagger"
+                                    }
+                                ], 
+                                "id": "http://w3id.org/meta-share/omtd-share/MorphologicalTagger", 
+                                "name": "Morphological tagger"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Aligner", 
+                                "name": "Aligner"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/CoReferenceAnnotator", 
+                                "name": "Co-reference annotator"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Stemmer", 
+                                "name": "Stemmer"
+                            }, 
+                            {
+                                "children": [
+                                    {
+                                        "id": "http://w3id.org/meta-share/omtd-share/ReadabilityAnnotator", 
+                                        "name": "Readability annotator"
+                                    }, 
+                                    {
+                                        "id": "http://w3id.org/meta-share/omtd-share/AnnotatorOfSemanticRoleLabels", 
+                                        "name": "Annotator of semantic role labels"
+                                    }
+                                ], 
+                                "id": "http://w3id.org/meta-share/omtd-share/SemanticAnnotator", 
+                                "name": "Semantic annotator"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Chunker", 
+                                "name": "Chunker"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Lemmatizer", 
+                                "name": "Lemmatizer"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/Annotator", 
+                        "name": "Annotator"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/Processor", 
+                "name": "Processor"
+            }, 
+            {
+                "children": [
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Normalizer", 
+                        "name": "Normalizer"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/SpellingChecker", 
+                        "name": "Spelling checker"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Filter", 
+                        "name": "Filter"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/GrammarChecker", 
+                        "name": "Grammar checker"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/PreOrPostProcessor", 
+                "name": "Pre- or Post-Processor"
+            }
+        ], 
+        "id": "http://w3id.org/meta-share/omtd-share/ComponentType", 
+        "name": "Component type"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/AnnotationOfQuestionTopics", 
+        "name": "Annotation of question topics"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/CrowdsourcingComponent", 
+        "name": "Crowdsourcing component"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/FeatureExtractor", 
+        "name": "Feature extractor"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/Visualiser", 
+        "name": "Visualiser"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/Writing", 
+        "name": "Writing"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/EventsLabeling", 
+        "name": "Event Labelling"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/TrainingOfMachineLearningModels", 
+        "name": "Training of Machine Learning models"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/FrameSemanticParsing", 
+        "name": "Frame-semantic parsing"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/FlowController", 
+        "name": "Flow controller"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/ReadabilityAnnotation", 
+        "name": "Readability annotation"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/DerivationalAnalysis", 
+        "name": "Derivational Analysis"
+    }, 
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/WordSense", 
+                        "name": "Word sense"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/TemporalExpression", 
+                        "name": "Temporal expression"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/SemanticClass", 
+                        "name": "Semantic class"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Keyword", 
+                        "name": "Keyword"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/CertaintyLevel", 
+                        "name": "Certainty level"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Polarity", 
+                        "name": "Polarity"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Event", 
+                        "name": "Event"
+                    }, 
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Date", 
+                                "name": "Date"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/IonicCurrent", 
+                                "name": "Ionic current"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/BrainRegion", 
+                                "name": "Brain region"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/BiologicalActivity", 
+                                "name": "Biological activity"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/IonicChannel", 
+                                "name": "Ionic channel"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/OfficialText", 
+                                "name": "Official text"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Organization", 
+                                "name": "Organization"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/SpectralData", 
+                                "name": "Spectral data"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Neuron", 
+                                "name": "Neuron"
+                            }, 
+                            {
+                                "children": [
+                                    {
+                                        "id": "http://w3id.org/meta-share/omtd-share/WheatRelatedSpecies", 
+                                        "name": "Wheat-related species"
+                                    }
+                                ], 
+                                "id": "http://w3id.org/meta-share/omtd-share/Species", 
+                                "name": "Species"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/ScientificValue", 
+                                "name": "Scientific value"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Media", 
+                                "name": "Media"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/ScientificUnit", 
+                                "name": "Scientific unit"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Protein", 
+                                "name": "Protein"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Location", 
+                                "name": "Location"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/MethodOfResearch", 
+                                "name": "Method of research"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Chemical", 
+                                "name": "Chemical"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Metabolite", 
+                                "name": "Metabolite"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/HistoricalEvent", 
+                                "name": "Historical event"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/IonicConductance", 
+                                "name": "Ionic conductance"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/TheoreticalFrame", 
+                                "name": "Theoretical frame"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Person", 
+                                "name": "Person"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Synapse", 
+                                "name": "Synapse"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/ModelOrganism_species", 
+                                "name": "Model organism/species"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/NamedEntity", 
+                        "name": "Named entity"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/SemanticRole", 
+                        "name": "Semantic role"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/LexicalSemanticRelation", 
+                        "name": "Lexical semantic relation"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/SyntacticoSemanticLink", 
+                        "name": "Syntactico-semantic link"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/SemanticFrame", 
+                        "name": "Semantic frame"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Emotion", 
+                        "name": "Emotion"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Subjectivity", 
+                        "name": "Subjectivity"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Topic", 
+                        "name": "Topic"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Sentiment", 
+                        "name": "Sentiment"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/QuestionTopicalTarget", 
+                        "name": "Question Topical Target"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Readability", 
+                        "name": "Readability"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/PersuasiveExpression", 
+                        "name": "Persuasive expression"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/SemanticAnnotationType", 
+                "name": "Semantic annotation type"
+            }, 
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Keyword", 
+                                "name": "Keyword"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Funding", 
+                                "name": "Funding"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Citation", 
+                                "name": "Citation"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/DocumentSection", 
+                                "name": "Document section"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Topic", 
+                                "name": "Topic"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/ScholarlyCommunicationAnnotation", 
+                        "name": "Scholarly analytics entity"
+                    }, 
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Phenotype", 
+                                "name": "Phenotype"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Rna", 
+                                "name": "RNA"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Habitat", 
+                                "name": "Habitat"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Gene", 
+                                "name": "Gene"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Organism", 
+                                "name": "Organism"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Marker", 
+                                "name": "Marker"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/ProteinFamily", 
+                                "name": "Protein family"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/GrapeVariety", 
+                                "name": "Grape variety"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/GeneFamily", 
+                                "name": "Gene family"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/WheatRelatedSpecies", 
+                                "name": "Wheat-related species"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/PhysicoChemicalProperty", 
+                                "name": "Physico-chemical property"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/AgriculturalEntity", 
+                        "name": "Agricultural entity"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/LinguisticEntity", 
+                        "name": "Linguistic entity"
+                    }, 
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/IonicCurrent", 
+                                "name": "Ionic current"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/BrainRegion", 
+                                "name": "Brain region"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/BiologicalActivity", 
+                                "name": "Biological activity"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/IonicChannel", 
+                                "name": "Ionic channel"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Neuron", 
+                                "name": "Neuron"
+                            }, 
+                            {
+                                "children": [
+                                    {
+                                        "id": "http://w3id.org/meta-share/omtd-share/WheatRelatedSpecies", 
+                                        "name": "Wheat-related species"
+                                    }
+                                ], 
+                                "id": "http://w3id.org/meta-share/omtd-share/Species", 
+                                "name": "Species"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Protein", 
+                                "name": "Protein"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Chemical", 
+                                "name": "Chemical"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Metabolite", 
+                                "name": "Metabolite"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/IonicConductance", 
+                                "name": "Ionic conductance"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Synapse", 
+                                "name": "Synapse"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/ModelOrganism_species", 
+                                "name": "Model organism/species"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/BiologicalEnity", 
+                        "name": "Biological enity"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/ScientificValue", 
+                        "name": "Scientific value"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/ChemicalEntity", 
+                        "name": "Chemical entity"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/ScientificUnit", 
+                        "name": "Scientific unit"
+                    }, 
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/OfficialText", 
+                                "name": "Official text"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/Media", 
+                                "name": "Media"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/AllbusVariable", 
+                                "name": "ALLBUS variable"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/MethodOfResearch", 
+                                "name": "Method of research"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/HistoricalEvent", 
+                                "name": "Historical event"
+                            }, 
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/TheoreticalFrame", 
+                                "name": "Theoretical frame"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/SocialSciencesEntity", 
+                        "name": "Social sciences entity"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/NeuroscienceEntity", 
+                        "name": "Neuroscience entity"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Relation", 
+                        "name": "Relation"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/Domain-specificAnnotation", 
+                "name": "Domain-specific annotation type"
+            }, 
+            {
+                "children": [
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/DerivationalFeature", 
+                        "name": "Derivational feature"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Stem", 
+                        "name": "Stem"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Compound", 
+                        "name": "Compound"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/MorphologicalFeature", 
+                        "name": "Morphological feature"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Lemma", 
+                        "name": "Lemma"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Word", 
+                        "name": "Word"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/MorphologicalAnnotationType", 
+                "name": "Morphological annotation type"
+            }, 
+            {
+                "children": [
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Contradiction", 
+                        "name": "Contradiction"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/DiscourceRelation", 
+                        "name": "Discource relation"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/AudienceReaction", 
+                        "name": "Audience reaction"
+                    }, 
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/EntityMentionPair", 
+                                "name": "Entity-Mention pair"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/Coreference", 
+                        "name": "Coreference"
+                    }, 
+                    {
+                        "children": [
+                            {
+                                "id": "http://w3id.org/meta-share/omtd-share/DialogueAct", 
+                                "name": "Dialogue act"
+                            }
+                        ], 
+                        "id": "http://w3id.org/meta-share/omtd-share/SpeechAct", 
+                        "name": "Speech act"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/DiscourseAnnotationType", 
+                "name": "Discourse annotation type"
+            }, 
+            {
+                "id": "http://w3id.org/meta-share/omtd-share/DocumentAnnotationType", 
+                "name": "Document annotation type"
+            }, 
+            {
+                "children": [
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Phrase", 
+                        "name": "Phrase"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Token", 
+                        "name": "Token"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Sentence", 
+                        "name": "Sentence"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Paragraph", 
+                        "name": "Paragraph"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Clause", 
+                        "name": "Clause"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/MultiWordUnit", 
+                        "name": "Multi-word unit"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/DocumentSection", 
+                        "name": "Document section"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Word", 
+                        "name": "Word"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/StructuralAnnotationType", 
+                "name": "Structural annotation type"
+            }, 
+            {
+                "id": "http://w3id.org/meta-share/omtd-share/Term", 
+                "name": "Term"
+            }, 
+            {
+                "children": [
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Constituent", 
+                        "name": "Constituent"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/DependencyTree", 
+                        "name": "Dependency tree"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Chunk", 
+                        "name": "Chunk"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/ConstituencyTree", 
+                        "name": "Constituency tree"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/SyntacticoSemanticLink", 
+                        "name": "Syntactico-semantic link"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/Dependency", 
+                        "name": "Dependency"
+                    }, 
+                    {
+                        "id": "http://w3id.org/meta-share/omtd-share/SubcategorizationFrame", 
+                        "name": "Subcategorization frame"
+                    }
+                ], 
+                "id": "http://w3id.org/meta-share/omtd-share/SyntacticAnnotationType", 
+                "name": "Syntactic annotation type"
+            }, 
+            {
+                "id": "http://w3id.org/meta-share/omtd-share/PartOfSpeech", 
+                "name": "Part of Speech"
+            }
+        ], 
+        "id": "http://w3id.org/meta-share/omtd-share/AnnotationType", 
+        "name": "Annotation type"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/MorphologicalAnalysis", 
+        "name": "Morphological Analysis"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/SemanticClassLabelling", 
+        "name": "Semantic Class Labelling"
+    }, 
+    {
+        "id": "http://w3id.org/meta-share/omtd-share/Reading", 
+        "name": "Reading"
+    }, 
+    {
+        "children": [
+            {
+                "id": "http://w3id.org/meta-share/omtd-share/DependencyParsing", 
+                "name": "Dependency parsing"
+            }, 
+            {
+                "id": "http://w3id.org/meta-share/omtd-share/FrameSemanticParsing", 
+                "name": "Frame-semantic parsing"
+            }, 
+            {
+                "id": "http://w3id.org/meta-share/omtd-share/ConstituencyParsing", 
+                "name": "Constituency parsing"
+            }, 
+            {
+                "id": "http://w3id.org/meta-share/omtd-share/Chunking", 
+                "name": "Chunking"
+            }
+        ], 
+        "id": "http://w3id.org/meta-share/omtd-share/Parsing", 
+        "name": "Parsing"
+    }
+]
