@@ -16,6 +16,7 @@ namespace = {
 	"dc" : "http://purl.org/dc/elements/1.1/"
 }
 
+
 class OwlClass :
 	def __init__(self,node):
 		self.id = node.attrib[ET.QName(namespace['rdf'], 'about')]
@@ -53,7 +54,7 @@ def buildTree(ontologies):
 	return topElements
 
 def buildJson(ontology):
-	properties = { 'id' : ontology.id, 'name' : ontology.label }
+	properties = { 'id' : ontology.id, 'name' : ontology.label, 'comment' : ontology.comment }
 	if len(ontology.children)!=0:
 		properties['children'] = [];
 		for child in ontology.children:

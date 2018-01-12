@@ -3,7 +3,7 @@
   <groupId>eu.openminted</groupId>
   <artifactId>omtd-model</artifactId>
   <packaging>jar</packaging>
-  <version>3.0.1-SNAPSHOT</version>
+  <version>3.0.2-SNAPSHOT</version>
   <name>omtd-model</name>
   <url>http://maven.apache.org</url>
 
@@ -150,7 +150,7 @@
             <configuration>
               <skip>${description.exec.skip}</skip>
               <executable>python</executable>
-              <workingDirectory>src/main/parsed</workingDirectory>
+              <workingDirectory>src/main/resources/parsed</workingDirectory>
               <arguments>
                 <argument>extract_doc.py</argument>
                 <argument>.</argument>
