@@ -1,4 +1,5 @@
 import xml.etree.ElementTree as ET
+import lxml.etree as etree
 import xml.dom.minidom as dom
 import sys
 import os
@@ -64,7 +65,7 @@ def rename_enum(n, appInfo,node) :
 		cl.set('name', node.attrib['name'] + 'Enum')
 		if verbose :
 			print 'Naming the enum ' + node.attrib['name']
-	if len(enums) > 0 : 
+	if len(enums) > 0 :
 		for enum in enums :
 			if 'value' in enum.attrib :
 				if len(enum.attrib['value']) == 0 :
@@ -77,9 +78,9 @@ def rename_enum(n, appInfo,node) :
 					cl.insert(0,clRenaming)
 				else:
 					rename = enum.attrib['value']
+					print Rename.rename(rename)
 					if re.match('^[^0-9][a-zA-Z_+\-=/0-9]+$',rename) is None:
-						rename = re.sub(r'\s',"",enum.attrib['value'])
-						rename = re.sub(r'[^\w\d_]','_', rename)			
+						rename = Rename.rename(rename)
 						if re.match('\d.*',rename) is not None :
 							rename = 'V' + rename	
 						if rename != enum.attrib['value'] :
@@ -89,6 +90,7 @@ def rename_enum(n, appInfo,node) :
 							cl.insert(0,clRenaming)
 						if verbose :
 							print '\tRenaming <<<' + enum.attrib['value'] + '>>> \tto\t ' + rename.upper()
+
 				#else:
 					#print '\tParsing <<<'+enum.attrib['value'] + '>>>'
 
@@ -142,9 +144,13 @@ def modify(filename,args) :
 	return root
 
 def write_tree(root,filename):
-	xmlstr = dom.parseString(ET.tostring(root)).toprettyxml(newl='',indent='')
+
+	XMLParser = etree.XMLParser(remove_blank_text=True)
+	# lxmlTree = ET.tostring(root).replace("\n","")
+	lxmlTree = etree.XML(ET.tostring(root),parser=XMLParser)
+	# xmlstr = dom.parseString(ET.tostring(root).replace("\n","")).toprettyxml()
 	with open(filename, 'w') as f :
-		f.write(xmlstr.encode('utf-8'))
+		f.write(etree.tostring(lxmlTree, pretty_print=True))
 		f.close()
 
 
