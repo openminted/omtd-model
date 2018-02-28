@@ -3,7 +3,7 @@
   <groupId>eu.openminted</groupId>
   <artifactId>omtd-model</artifactId>
   <packaging>jar</packaging>
-  <version>2.0.2</version>
+  <version>3.0.2</version>
   <name>omtd-model</name>
   <url>http://maven.apache.org</url>
 
@@ -136,7 +136,7 @@
               <workingDirectory>src/main/resources/parsed</workingDirectory>
               <arguments>
                 <argument>enum.py</argument>
-                <argument>-d../xsd/OMTD-SHARE v201 XSD/</argument>
+                <argument>-d../xsd/Schema/</argument>
                 <argument>-peu.openminted.registry.domain</argument>
               </arguments>
             </configuration>
@@ -150,7 +150,7 @@
             <configuration>
               <skip>${description.exec.skip}</skip>
               <executable>python</executable>
-              <workingDirectory>src/main/parsed</workingDirectory>
+              <workingDirectory>src/main/resources/parsed</workingDirectory>
               <arguments>
                 <argument>extract_doc.py</argument>
                 <argument>.</argument>
@@ -186,6 +186,7 @@
                 <arg>-Xsetters</arg>
                 <arg>-Xxew</arg>
                 <arg>-Xxew:instantiate lazy</arg>
+                <!--<arg>-Xxew:plural</arg>-->
                 <arg>-Xfixed-value</arg>
               </args>
               <plugins>
@@ -220,18 +221,25 @@
       <plugin>
         <groupId>cz.habarta.typescript-generator</groupId>
         <artifactId>typescript-generator-maven-plugin</artifactId>
-        <version>1.27.339</version>
+        <version>1.29.366</version>
         <executions>
           <execution>
             <id>generate1</id>
+            <!--<phase>process-classes</phase>-->
             <goals>
               <goal>generate</goal>
             </goals>
             <configuration>
               <jsonLibrary>jackson2</jsonLibrary>
               <outputFileType>implementationFile</outputFileType>
-              <!--<mapEnum>asEnum</mapEnum>-->
+              <mapEnum>asNumberBasedEnum</mapEnum>
               <mapClasses>asClasses</mapClasses>
+              <customTypeMappings>
+                <customTypeMapping>javax.xml.datatype.XMLGregorianCalendar:Date</customTypeMapping>
+              </customTypeMappings>
+              <customTypeNaming>
+                eu.openminted.registry.domain.Date:OMTDDate
+              </customTypeNaming>
               <classPatterns>
                 <pattern>eu.openminted.registry.domain.*</pattern>
               </classPatterns>
