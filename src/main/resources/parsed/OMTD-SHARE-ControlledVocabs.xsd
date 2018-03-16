@@ -4426,7 +4426,7 @@ In annotation, words are often used as equivalent to tokens; thus, for instance,
       </xs:enumeration>
       <xs:enumeration value="http://w3id.org/meta-share/omtd-share/Clause">
         <xs:annotation>
-          <xs:documentation>A clause is a subdivision of a sentence containing a subject (argument) and predicate. It is possible to have a word that implies or refers to a predicate rather than one explicitly stated. [Pei &amp; Gaynor 1980: 40, http://linguistics-ontology.org/gold/2010/Clause]</xs:documentation>
+          <xs:documentation>A clause is a subdivision of a sentence containing a subject (argument) and predicate. It is possible to have a word that implies or refers to a predicate rather than one explicitly stated. [Pei and Gaynor 1980: 40, http://linguistics-ontology.org/gold/2010/Clause]</xs:documentation>
           <xs:appinfo>
             <label>Clause</label>
             <subclassOf>http://w3id.org/meta-share/omtd-share/StructuralAnnotationType</subclassOf>
