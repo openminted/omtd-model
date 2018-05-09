@@ -16,6 +16,26 @@ namespace = {
 	"dc" : "http://purl.org/dc/elements/1.1/"
 }
 
+class Rename:
+
+	@staticmethod
+	def rename(name):
+		if name is '':
+			name = 'BLANK'
+		elif name is 'null' :
+			name = 'null'
+		new_name = name
+		match = re.match('^[^0-9][a-zA-Z_0-9]+$',name)
+		if match is None:
+			new_name = re.sub(r'\s',"",name)
+			new_name = re.sub(r'/',"_",name)
+			new_name = re.sub(r'[^\w\d_]','_', new_name)
+			new_name = re.sub(r'([a-z])([A-Z])',r"\1_\2",new_name)
+			if re.match('\d.*',new_name) is not None :
+				new_name = 'V' + new_name
+		else:
+			new_name = re.sub(r'([a-z])([A-Z])',r"\1_\2",name)
+		return new_name.upper()
 
 class OwlClass :
 	def __init__(self,node):
@@ -56,7 +76,7 @@ def buildTree(ontologies):
 def buildJson(ontology):
 	properties = { 'id' : ontology.id, 'name' : ontology.label, 'comment' : ontology.comment }
 	if len(ontology.children)!=0:
-		properties['children'] = [];
+		properties['children'] = []
 		for child in ontology.children:
 			properties['children'].append(buildJson(child))
 	return properties
@@ -69,6 +89,8 @@ if __name__ == '__main__' :
 	parser.add_argument('-o', '--output', type=str, help = "the name of the generated typescript", default = "ontology.json")
 	args = parser.parse_args()
 	ontologies = parseElements(args.name)
+	for ontology in ontologies:
+		print Rename.rename(ontologies[ontology].id)+'='+ontologies[ontology].label
 	topElements = buildTree(ontologies)
 	jsonContent = []
 	for ontology in topElements:
